@@ -1,0 +1,46 @@
+.row
+  span.col-md-8
+    bs-button type="primary" clicked="show"
+      i.fa.fa-plus.icon-white
+      |  Agregar
+  span.col-md-4
+    .input-group
+      span.input-group-addon
+        i.fa.fa-search
+      input.form-control type="text" placeholder="Buscar Escuela..."
+
+.row
+  span.col-md-12
+    h2#title.page-header
+      i.fa.fa-bell-o
+      |  Escuelas
+
+    table.table.table-condensed
+      thead
+        tr
+          th Escuela
+          th Tipo
+          th
+      tbody
+        each model
+          tr
+            td = name
+            td = type
+            td
+              bs-button type="success" class="btn-sm" clicked="showEdit"
+                i.fa.fa-pencil.icon-white
+              bs-button type="danger" class="btn-sm" clicked="delete"
+                i.fa.fa-trash-o.icon-white
+
+bs-modal name="addSchoolModal" fade=true footerButtonsBinding="modalButtons" title="Agregar Escuela"
+  form class="form-horizontal" role="form"
+    .form-group
+      label class="control-label.col-sm-2" for="name"
+        | Nombre
+      .col-sm-10
+        view Ember.TextField class="form-control" valueBinding="schoolName" id="name" placeholder="Nombre de la Escuela" required="true"
+    .form-group
+      label class="control-label.col-sm-2" for="type"
+        | Tipo
+      .col-sm-10
+        bs-btn-group contentBinding="schoolTypes" selectedBinding="schoolType"

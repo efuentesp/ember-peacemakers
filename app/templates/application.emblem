@@ -1,0 +1,53 @@
+#page
+
+  header
+    .container
+      #menu.navbar.navbar-inverse.navbar-fixed-top
+        .container-fluid
+          .navbar-header
+            button.navbar-toggle data-toggle="collapse" data-target=".navbar-collapse"
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand href="/" Peacemakers
+          .navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li.nav.active
+                link-to "index"
+                  | Inicio
+              li.nav
+                link-to "schools"
+                  | Escuelas
+              li.nav
+                link-to "application"
+                  | Configuración
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a.dropdown-toggle href="#" data-toggle="dropdown"
+                  | Usuario
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    a href="#" Action
+                  li
+                    a href="#" Action
+                  li
+                    a href="#" Action
+                  li.divider
+                  li
+                    a href="#" Action
+              li
+                a href="#" Salir
+
+  section#body.container
+    section#main
+      = outlet
+
+  hr
+
+  footer
+    .container
+      span.muted
+        p
+          |&copy; Copyright 2013 Peacemakers. All rights reserved.
