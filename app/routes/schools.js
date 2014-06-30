@@ -4,21 +4,7 @@ var schoolsRoute;
 
 schoolsRoute = Ember.Route.extend({
   model: function() {
-    return [
-      {
-        id: 1,
-        name: 'School 1',
-        type: 'PUBLIC'
-      }, {
-        id: 2,
-        name: 'School 2',
-        type: 'PRIVATE'
-      }, {
-        id: 3,
-        name: 'School 3',
-        type: 'PRIVATE'
-      }
-    ];
+    return this.store.findAll("school");
   }
 });
 

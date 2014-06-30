@@ -15,17 +15,21 @@
             ul.nav.navbar-nav
               li.nav.active
                 link-to "index"
-                  | Inicio
+                  i.fa.fa-home
+                  |  Inicio
               li.nav
                 link-to "schools"
-                  | Escuelas
+                  i.fa.fa-bell-o
+                  |  Escuelas
               li.nav
                 link-to "application"
-                  | Configuración
+                  i.fa.fa-cog
+                  |  Configuración
             ul.nav.navbar-nav.navbar-right
               li.dropdown
                 a.dropdown-toggle href="#" data-toggle="dropdown"
-                  | Usuario
+                  i.fa.fa-user
+                  |  Usuario 
                   b.caret
                 ul.dropdown-menu
                   li
@@ -38,7 +42,9 @@
                   li
                     a href="#" Action
               li
-                a href="#" Salir
+                a href="#"
+                  i.fa.fa-power-off
+                  |  Salir
 
   section#body.container
     section#main
@@ -48,6 +54,6 @@
 
   footer
     .container
-      span.muted
-        p
+      span
+        p.text-muted
           |&copy; Copyright 2013 Peacemakers. All rights reserved.

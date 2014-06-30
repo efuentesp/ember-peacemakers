@@ -1,8 +1,18 @@
 .row
   span.col-md-8
-    bs-button type="primary" clicked="show"
-      i.fa.fa-plus.icon-white
-      |  Agregar
+    form.form-inline role="form"
+      .form-group class={isValid::has-error}
+        input.form-control type="text" placeholder="Nombre de la Escuela" value=schoolName
+        unless isValid
+          span.help-block = errName
+      .form-group
+        select.form-control
+          option Pública
+          option Privada
+      .form-group
+        bs-button type="primary" clicked="addSchool"
+          i.fa.fa-plus.icon-white
+
   span.col-md-4
     .input-group
       span.input-group-addon
@@ -22,25 +32,27 @@
           th Tipo
           th
       tbody
-        each model
+        each controller
           tr
             td = name
             td = type
             td
-              bs-button type="success" class="btn-sm" clicked="showEdit"
-                i.fa.fa-pencil.icon-white
-              bs-button type="danger" class="btn-sm" clicked="delete"
-                i.fa.fa-trash-o.icon-white
-
-bs-modal name="addSchoolModal" fade=true footerButtonsBinding="modalButtons" title="Agregar Escuela"
-  form class="form-horizontal" role="form"
-    .form-group
-      label class="control-label.col-sm-2" for="name"
-        | Nombre
-      .col-sm-10
-        view Ember.TextField class="form-control" valueBinding="schoolName" id="name" placeholder="Nombre de la Escuela" required="true"
-    .form-group
-      label class="control-label.col-sm-2" for="type"
-        | Tipo
-      .col-sm-10
-        bs-btn-group contentBinding="schoolTypes" selectedBinding="schoolType"
+              link-to "classrooms" this class="btn btn-success"
+                i.fa.fa-book.icon-white
+                |  Aulas
+              .btn-group
+                button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown"
+                  | Acción 
+                  span.caret
+                ul.dropdown-menu role="menu"
+                  li
+                    link-to "application"
+                      i.fa.fa-pencil.icon-white
+                      |  Editar
+                  li
+                    link-to "application"
+                      i.fa.fa-trash-o.icon-white
+                      |  Eliminar
+        else
+          tr
+            td No hay Escuelas.

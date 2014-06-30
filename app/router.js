@@ -12,6 +12,9 @@ Router.map(function() {
       path: ':school_id'
     });
   });
+  this.resource('classrooms', {
+    path: '/schools/:school_id/classrooms'
+  });
   this.route('component-test');
   return this.route('helper-test');
 });

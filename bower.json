@@ -17,6 +17,7 @@
     "bootstrap-sass-official": "~3.1.1+2",
     "pretender": "trek/pretender#0.0.7",
     "font-awesome": "~4.1.0",
-    "ember-addons.bs_for_ember": "~0.7.0"
+    "ember-addons.bs_for_ember": "~0.7.0",
+    "moment": "~2.7.0"
   }
 }

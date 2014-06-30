@@ -1,0 +1,31 @@
+span.col-md-12
+  h2#title.page-header
+    i.fa.fa-book
+    |  Aulas
+
+  h1 = school
+  table.table.table-condensed
+    thead
+      tr
+        th Etapa
+        th Periodo
+        th Aula
+        th
+        th
+        th
+        th
+        th
+    tbody
+      each classrooms
+        tr
+          td = stage
+          td = period
+          td = name
+          td
+          td
+          td
+          td
+          td
+      else
+        tr
+          td No hay Aulas.
