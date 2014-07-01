@@ -4,7 +4,7 @@ var schoolsRoute;
 
 schoolsRoute = Ember.Route.extend({
   model: function() {
-    return this.store.findAll("school");
+    return this.store.find("school");
   }
 });
 
