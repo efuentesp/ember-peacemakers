@@ -15,8 +15,9 @@ Router.map(function() {
   this.resource('classrooms', {
     path: '/schools/:school_id/classrooms'
   });
-  this.route('component-test');
-  return this.route('helper-test');
+  return this.resource('classmates', {
+    path: '/schools/:school_id/classrooms/:classroom_id'
+  });
 });
 
 export default Router;

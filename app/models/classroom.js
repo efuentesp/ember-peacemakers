@@ -7,7 +7,13 @@ Classroom = DS.Model.extend({
   period: DS.attr('string'),
   stage: DS.attr('string'),
   createdAt: DS.attr('date'),
-  school: DS.belongsTo('school')
+  school: DS.belongsTo('school'),
+  classmates: DS.hasMany('classmate', {
+    async: true
+  }),
+  classmatesCount: (function() {
+    return this.get('classmates.length');
+  }).property('classmates.@each')
 });
 
 Classroom.reopenClass({
@@ -18,21 +24,24 @@ Classroom.reopenClass({
       period: '2013-2014',
       stage: 'Primaria',
       createdAt: new Date(),
-      school: 1
+      school: 1,
+      classmates: [1, 2]
     }, {
       id: 2,
       name: 'Classroom 2',
       period: '2013-2014',
       stage: 'Primaria',
       createdAt: new Date(),
-      school: 1
+      school: 1,
+      classmates: []
     }, {
       id: 3,
       name: 'Classroom 3',
       period: '2013-2014',
       stage: 'Primaria',
       createdAt: new Date(),
-      school: 2
+      school: 2,
+      classmates: [3]
     }
   ]
 });

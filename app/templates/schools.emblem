@@ -1,4 +1,11 @@
 .row
+  ol.breadcrumb
+    li
+      link-to "application"
+        | Inicio
+    li.active Escuelas
+
+.row
   span.col-md-8
     form.form-inline role="form"
       .form-group class={isValid::has-error}
