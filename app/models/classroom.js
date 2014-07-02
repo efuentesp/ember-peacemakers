@@ -13,7 +13,10 @@ Classroom = DS.Model.extend({
   }),
   classmatesCount: (function() {
     return this.get('classmates.length');
-  }).property('classmates.@each')
+  }).property('classmates.@each'),
+  fullName: (function() {
+    return this.get('school.name') + ' ' + this.get('name') + ' ' + this.get('stage') + ' ' + this.get('period');
+  }).property('school.name', 'name', 'stage', 'period')
 });
 
 Classroom.reopenClass({

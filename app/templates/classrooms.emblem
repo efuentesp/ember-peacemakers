@@ -43,7 +43,7 @@
             td
             td
             td
-              link-to "classmates" classroom class="btn btn-success"
+              link-to "classmates" id classroom.id class="btn btn-success"
                 i.fa.fa-group
                 |  Alumnos
         else

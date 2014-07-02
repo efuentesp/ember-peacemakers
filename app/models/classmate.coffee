@@ -8,12 +8,16 @@ Classmate = DS.Model.extend
 
   classroom: DS.belongsTo 'classroom'
 
+  fullName: (->
+    @get('firstName') + ' ' + @get('lastName')
+  ).property('firstName', 'lastName')
+
 Classmate.reopenClass
   FIXTURES:
     [
-      { id: 1, firstName: 'Classroom 1', lastName: '2013-2014', photoUrl: 'Primaria', createdAt: new Date(), classroom: 1 }
-      { id: 2, firstName: 'Classroom 2', lastName: '2013-2014', photoUrl: 'Primaria', createdAt: new Date(), classroom: 1 }
-      { id: 3, firstName: 'Classroom 3', lastName: '2013-2014', photoUrl: 'Primaria', createdAt: new Date(), classroom: 3 }
+      { id: 1, firstName: 'FirstName 1', lastName: 'LastName 1', photoUrl: '/assets/passed.png', createdAt: new Date(), classroom: 1 }
+      { id: 2, firstName: 'FirstName 2', lastName: 'LastName 2', photoUrl: '/assets/passed.png', createdAt: new Date(), classroom: 1 }
+      { id: 3, firstName: 'FirstName 3', lastName: 'LastName 3', photoUrl: '/assets/passed.png', createdAt: new Date(), classroom: 3 }
     ]
 
 `export default Classmate`

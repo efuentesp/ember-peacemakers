@@ -1,1 +1,36 @@
-h1 Classmates
+.row
+  ol.breadcrumb
+    li
+      link-to "application"
+        | Inicio
+    li
+      link-to "schools"
+        | Escuelas
+    li
+      link-to "classrooms"
+        | Aulas
+    li.active Alumnos
+
+.row
+  span.col-md-12
+    h2#title.page-header
+      i.fa.fa-group
+      |  Alumnos 
+      small  = fullName
+
+    table.table.table-condensed
+      thead
+        tr
+          th Foto
+          th Alumno
+          th
+      tbody
+        each classmate in classmates
+          tr
+            td
+              img src=classmate.photoUrl
+            td = classmate.fullName
+            td
+        else
+          tr
+            td No hay Alumnos.

@@ -13,6 +13,10 @@ Classroom = DS.Model.extend
     @get('classmates.length')
   ).property('classmates.@each')
 
+  fullName: (->
+    @get('school.name') + ' ' + @get('name') + ' ' + @get('stage') + ' ' + @get('period')
+  ).property('school.name', 'name', 'stage', 'period')
+
 Classroom.reopenClass
   FIXTURES:
     [

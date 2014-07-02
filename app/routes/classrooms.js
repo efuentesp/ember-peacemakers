@@ -3,8 +3,10 @@ import Ember from 'ember';
 var classroomsRoute;
 
 classroomsRoute = Ember.Route.extend({
-  model: function() {
-    return this.store.modelFor('school').get('classrooms');
+  model: function(params) {
+    return this.store.find('school', params.school_id).then(function(classrooms) {
+      return classrooms;
+    });
   }
 });
 
