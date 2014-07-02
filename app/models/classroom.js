@@ -15,7 +15,7 @@ Classroom = DS.Model.extend({
     return this.get('classmates.length');
   }).property('classmates.@each'),
   fullName: (function() {
-    return this.get('school.name') + ' ' + this.get('name') + ' ' + this.get('stage') + ' ' + this.get('period');
+    return this.get('school.name') + ' (' + this.get('stage') + ', ' + this.get('period') + ' ' + this.get('name') + ')';
   }).property('school.name', 'name', 'stage', 'period')
 });
 

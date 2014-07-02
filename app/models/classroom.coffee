@@ -14,7 +14,7 @@ Classroom = DS.Model.extend
   ).property('classmates.@each')
 
   fullName: (->
-    @get('school.name') + ' ' + @get('name') + ' ' + @get('stage') + ' ' + @get('period')
+    @get('school.name') + ' (' + @get('stage') + ', ' + @get('period') + ' ' + @get('name') + ')'
   ).property('school.name', 'name', 'stage', 'period')
 
 Classroom.reopenClass

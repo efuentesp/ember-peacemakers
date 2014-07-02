@@ -21,14 +21,22 @@
     table.table.table-condensed
       thead
         tr
+          th
+            .checkbox
+              label
+                input type="checkbox"
           th Foto
-          th Alumno
+          th Nombre Completo
           th
       tbody
         each classmate in classmates
           tr
             td
-              img src=classmate.photoUrl
+              .checkbox
+                label
+                  input type="checkbox"
+            td
+              img.photo_small src=classmate.photoUrl
             td = classmate.fullName
             td
         else
