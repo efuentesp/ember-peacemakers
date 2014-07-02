@@ -7,6 +7,7 @@ Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('login');
   this.resource('schools', function() {
     return this.route('show', {
       path: ':school_id'
@@ -15,9 +16,10 @@ Router.map(function() {
   this.resource('classrooms', {
     path: '/schools/:school_id/classrooms'
   });
-  return this.resource('classmates', {
+  this.resource('classmates', {
     path: '/schools/:school_id/classrooms/:classroom_id'
   });
+  return this.route('setup');
 });
 
 export default Router;

@@ -36,7 +36,8 @@
                 label
                   input type="checkbox"
             td
-              img.photo_small src=classmate.photoUrl
+              .col-sm-3
+                img.img-responsive.img-circle src=classmate.photoUrl
             td = classmate.fullName
             td
         else

@@ -22,29 +22,34 @@
                   i.fa.fa-bell-o
                   |  Escuelas
               li.nav
-                link-to "application"
+                link-to "setup"
                   i.fa.fa-cog
                   |  Configuración
             ul.nav.navbar-nav.navbar-right
-              li.dropdown
-                a.dropdown-toggle href="#" data-toggle="dropdown"
-                  i.fa.fa-user
-                  |  Usuario 
-                  b.caret
-                ul.dropdown-menu
-                  li
-                    a href="#" Action
-                  li
-                    a href="#" Action
-                  li
-                    a href="#" Action
-                  li.divider
-                  li
-                    a href="#" Action
               li
-                a href="#"
-                  i.fa.fa-power-off
-                  |  Salir
+                if session.isAuthenticated
+                  li.dropdown
+                    a.dropdown-toggle href="#" data-toggle="dropdown"
+                      i.fa.fa-user
+                      |  Usuario 
+                      b.caret
+                    ul.dropdown-menu
+                      li
+                        a href="#" Action
+                      li
+                        a href="#" Action
+                      li
+                        a href="#" Action
+                      li.divider
+                      li
+                        a href="#" Action
+                  a href="#"
+                    i.fa.fa-power-off
+                    |  Salir
+                else
+                  link-to 'login'
+                    i.fa.fa-sign-in
+                    |  Entrar
 
   section#body.container
     section#main
