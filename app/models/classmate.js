@@ -19,21 +19,21 @@ Classmate.reopenClass({
       id: 1,
       firstName: 'FirstName 1',
       lastName: 'LastName 1',
-      photoUrl: '/assets/passed.png',
+      photoUrl: 'http://api.randomuser.me/portraits/men/49.jpg',
       createdAt: new Date(),
       classroom: 1
     }, {
       id: 2,
       firstName: 'FirstName 2',
       lastName: 'LastName 2',
-      photoUrl: '/assets/passed.png',
+      photoUrl: 'http://api.randomuser.me/portraits/women/34.jpg',
       createdAt: new Date(),
       classroom: 1
     }, {
       id: 3,
       firstName: 'FirstName 3',
       lastName: 'LastName 3',
-      photoUrl: '/assets/passed.png',
+      photoUrl: 'http://api.randomuser.me/portraits/women/56.jpg',
       createdAt: new Date(),
       classroom: 3
     }

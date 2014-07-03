@@ -7,18 +7,39 @@
 
 .row
   span.col-md-8
-    form.form-inline role="form"
-      .form-group class={isValid::has-error}
-        input.form-control type="text" placeholder="Nombre de la Escuela" value=schoolName
-        unless isValid
-          span.help-block = errName
-      .form-group
-        select.form-control
-          option Pública
-          option Privada
-      .form-group
-        bs-button type="primary" clicked="addSchool"
-          i.fa.fa-plus.icon-white
+    #add-panel.collapse.filter-panel
+      .panel.panel-primary
+        .panel-heading
+          h3.panel-title Agregar Escuela
+        .panel-body
+          .row
+            .col-md-3 align="center"
+              img.img-circle src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
+            .col-md-5
+              form role="form"
+                .form-group
+                  label for="schoolName" Nombre
+                  .input-group
+                    input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" value=schoolName
+                    span.input-group-addon.danger
+                      i.fa.fa-times
+                .form-group
+                  label for="schoolType" Tipo
+                  .input-group
+                    select#schoolType.form-control name="schoolType" placeholder="Seleccionar tipo"
+                      option -- Seleccionar --
+                      option Pública
+                      option Privada
+                    span.input-group-addon.danger
+                      i.fa.fa-times
+        .panel-footer
+          bs-button type="primary" clicked="addSchool"
+            i.fa.fa-save
+          .span.pull-right
+            bs-button data-toggle="collapse" data-target="#add-panel"
+              | Cerrar
+    bs-button type="primary" data-toggle="collapse" data-target="#add-panel"
+      i.fa.fa-plus
 
   span.col-md-4
     .input-group

@@ -26,27 +26,51 @@
                   i.fa.fa-cog
                   |  Configuración
             ul.nav.navbar-nav.navbar-right
-              li
-                if session.isAuthenticated
-                  li.dropdown
-                    a.dropdown-toggle href="#" data-toggle="dropdown"
-                      i.fa.fa-user
-                      |  Usuario 
-                      b.caret
-                    ul.dropdown-menu
-                      li
-                        a href="#" Action
-                      li
-                        a href="#" Action
-                      li
-                        a href="#" Action
-                      li.divider
-                      li
-                        a href="#" Action
+              if session.isAuthenticated
+                li.dropdown
+                  a.dropdown-toggle href="#" data-toggle="dropdown"
+                    i.fa.fa-user
+                    |  Usuario 
+                    b.caret
+                  ul.dropdown-menu
+                    li
+                      a href="#" Action
+                    li
+                      a href="#" Action
+                    li
+                      a href="#" Action
+                    li.divider
+                    li
+                      a href="#" Action
+                li
                   a href="#"
                     i.fa.fa-power-off
                     |  Salir
-                else
+              else
+                li.dropdown
+                  a.dropdown-toggle href="#" data-toggle="dropdown"
+                    i.fa.fa-user
+                    |  Usuario
+                    b.caret
+                    ul.dropdown-menu
+                      li
+                        .navbar-content
+                          .row
+                            .col-md-5
+                              img.img-responsive.img-circle src="http://api.randomuser.me/portraits/men/49.jpg"
+                              p.text-center.small
+                                a href="#" Cambiar Foto
+                            .col-md-7
+                              span Nombre del Usuario
+                              p.text-muted.small mail.gmail.com
+                              .divider
+                              a.btn.btn-primary.btn-sm.active Ver Perfil
+                        .navbar-footer
+                          .navbar-footer-content
+                            .row
+                              .col-md-6
+                                a.btn.btn-default.btn-sm Cambiar Contraseña                
+                li
                   link-to 'login'
                     i.fa.fa-sign-in
                     |  Entrar

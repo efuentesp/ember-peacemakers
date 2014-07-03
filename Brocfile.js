@@ -50,7 +50,7 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
   ]
 });
 
-['transition.js', 'dropdown.js'].forEach(function(path) {
+['transition.js', 'dropdown.js', 'collapse.js'].forEach(function(path) {
   var fullPath = 'vendor/bootstrap-sass-official/assets/javascripts/bootstrap/' + path;
   app.import(fullPath);
 });
