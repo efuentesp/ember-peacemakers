@@ -41,46 +41,52 @@
     bs-button type="primary" data-toggle="collapse" data-target="#add-panel"
       i.fa.fa-plus
 
-  span.col-md-4
-    .input-group
-      span.input-group-addon
-        i.fa.fa-search
-      input.form-control type="text" placeholder="Buscar Escuela..."
-
 .row
   span.col-md-12
-    h2#title.page-header
-      i.fa.fa-bell-o
-      |  Escuelas
-
-    table.table.table-condensed
-      thead
-        tr
-          th Escuela
-          th Tipo
-          th
-      tbody
-        each controller
+    .panel.panel-primary
+      .panel-heading
+        h3.panel-title
+          i.fa.fa-bell-o
+          |  Escuelas
+        span.pull-right.clickable.filter data-toogle="tooltip" title="Buscar Escuelas" data-container="body"
+          i.fa.fa-search
+      .panel-body
+        .container
+          .row
+            #custom-search-input
+              .input-group.col-md-6
+                input#scool-filter.form-control.search-query type="text" data-action="filter" data-filters="#school-table" placeholder="Buscar Escuelas"
+                span.input-group-btn
+                  button.btn.btn-default type="button"
+                    i.fa.fa-search
+      table.school-table.table.table-hover
+        thead
           tr
-            td = name
-            td = type
-            td
-              link-to "classrooms" this class="btn btn-success"
-                i.fa.fa-book.icon-white
-                |  Aulas
-              .btn-group
-                button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown"
-                  | Acción 
-                  span.caret
-                ul.dropdown-menu role="menu"
-                  li
-                    link-to "application"
-                      i.fa.fa-pencil.icon-white
-                      |  Editar
-                  li
-                    link-to "application"
-                      i.fa.fa-trash-o.icon-white
-                      |  Eliminar
-        else
-          tr
-            td No hay Escuelas.
+            th Escuela
+            th Tipo
+            th
+        tbody
+          each controller
+            tr
+              td = name
+              td = type
+              td
+                link-to "classrooms" this class="btn btn-success"
+                  i.fa.fa-book.icon-white
+                  |  Aulas
+                .btn-group
+                  button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown"
+                    | Acción 
+                    span.caret
+                  ul.dropdown-menu role="menu"
+                    li
+                      link-to "application"
+                        i.fa.fa-pencil.icon-white
+                        |  Editar
+                    li
+                      link-to "application"
+                        i.fa.fa-trash-o.icon-white
+                        |  Eliminar
+          else
+            tr
+              td No hay Escuelas.
