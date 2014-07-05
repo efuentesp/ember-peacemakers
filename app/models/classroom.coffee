@@ -7,7 +7,7 @@ Classroom = DS.Model.extend
   createdAt: DS.attr 'date'
 
   school: DS.belongsTo 'school'
-  classmates: DS.hasMany 'classmate', {async: true}
+  classmates: DS.hasMany 'student', {async: true}
 
   classmatesCount: (->
     @get('classmates.length')

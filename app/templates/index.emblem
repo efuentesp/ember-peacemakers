@@ -11,45 +11,53 @@
         .col-md-6
           a.btn.btn-danger.btn-lg role="button"
             span
-              i.fa.fa-list-alt
+              i.fa.fa-bell-o
               br
-              |  Apps
+              |  Escuelas
+          |  
           a.btn.btn-warning.btn-lg role="button"
             span
-              i.fa.fa-bookmark
+              i.fa.fa-user
               br
-              |  Bookmarks
+              |  Usuarios
+          |  
           a.btn.btn-primary.btn-lg role="button"
             span
               i.fa.fa-signal
               br
               |  Reports
+          |  
           a.btn.btn-primary.btn-lg role="button"
             span
               i.fa.fa-comment
               br
               |  Comments
+          |  
         .col-md-6
           a.btn.btn-success.btn-lg role="button"
             span
               i.fa.fa-user
               br
               |  Users
+          |  
           a.btn.btn-info.btn-lg role="button"
             span
               i.fa.fa-file
               br
               |  Notes
+          |  
           a.btn.btn-primary.btn-lg role="button"
             span
               i.fa.fa-file-photo-o
               br
               |  Photos
-          a.btn.btn-primary.btn-lg role="button"
+          |  
+          link-to "student" class="btn btn-primary btn-lg" role="button"
             span
-              i.fa.fa-tag
+              i.fa.fa-group
               br
-              |  Tags
+              |  Alumno
+          |  
       button.btn.btn-success.btn-lg.btn-block role="button"
         i.fa.fa-globe
         br

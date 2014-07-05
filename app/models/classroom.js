@@ -8,7 +8,7 @@ Classroom = DS.Model.extend({
   stage: DS.attr('string'),
   createdAt: DS.attr('date'),
   school: DS.belongsTo('school'),
-  classmates: DS.hasMany('classmate', {
+  classmates: DS.hasMany('student', {
     async: true
   }),
   classmatesCount: (function() {

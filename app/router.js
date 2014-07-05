@@ -19,7 +19,10 @@ Router.map(function() {
   this.resource('classmates', {
     path: '/schools/:school_id/classrooms/:classroom_id'
   });
-  return this.route('setup');
+  this.route('setup');
+  return this.route('student_dashboard', {
+    path: '/student/:student_id'
+  });
 });
 
 export default Router;
