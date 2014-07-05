@@ -12,12 +12,55 @@
     li.active Alumnos
 
 .row
-  span.col-md-12
-    h2#title.page-header
+  .col-md-10
+    h2#title
       i.fa.fa-group
       |  Alumnos 
-      small  = fullName
+      small = fullName
+  .col-md-2
 
+hr
+.row
+  .col-md-10
+    form.form-inline role="form"
+    .form-group
+      bs-button type="primary" clicked="addSchool"
+        i.fa.fa-plus-circle
+        |  Agregar Alumno
+      |  
+      bs-button type="info" clicked="addSchool"
+        i.fa.fa-file-zip-o
+        |  Cargar Archivo ZIP
+      |  
+      bs-button type="warning" clicked="addSchool"
+        i.fa.fa-key
+        |  Contraseñas
+      |  
+      bs-button type="danger" clicked="addSchool"
+        i.fa.fa-trash-o
+        |  Eliminar
+    .form-group
+      .input-group
+        .input-group-addon
+          i.fa.fa-search
+        input#classmate-filter.form-control type="text" placeholder="Buscar Alumno..."
+  .col-md-2
+    .pull-right
+      span.text-muted
+        b 1
+        |  - 
+        b = classmates.length
+        |  de 
+        b = classmates.length
+        |  
+      .btn-group.btn-group-sm
+        button.btn.btn-default type="button" disabled="disabled"
+          i.fa.fa-chevron-left
+        button.btn.btn-default type="button" disabled="disabled"
+          i.fa.fa-chevron-right
+
+.row
+  .col-md-12
     table.table.table-condensed
       thead
         tr
@@ -25,9 +68,9 @@
             .checkbox
               label
                 input type="checkbox"
-          th Foto
-          th Nombre Completo
-          th
+          th.col-md-2
+          th.col-md-8
+          th.col-md-2
       tbody
         each classmate in classmates
           tr
@@ -36,10 +79,18 @@
                 label
                   input type="checkbox"
             td
-              .col-sm-2
-                img.img-responsive.img-circle src=classmate.photoUrl
-            td = classmate.fullName
+              img.profile-img src=classmate.photoUrl
             td
+              = classmate.fullName
+              h6
+                bs-label content="Nuevo" type="info"
+            td
+              .pull-right
+                link-to "application" class="btn btn-primary"
+                  i.fa.fa-pencil
+                p 
+                link-to "application" class="btn btn-danger"
+                  i.fa.fa-trash-o
         else
           tr
             td No hay Alumnos.

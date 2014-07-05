@@ -79,10 +79,13 @@
     section#main
       = outlet
 
+  br
+  br
+  br
   hr
 
   footer
     .container
       span
         p.text-muted
-          |&copy; Copyright 2013 Peacemakers. All rights reserved.
+          |&copy; Copyright 2013 Peacemakers. Todos los derechos reservados.

@@ -15,9 +15,9 @@ Classmate = DS.Model.extend
 Classmate.reopenClass
   FIXTURES:
     [
-      { id: 1, firstName: 'FirstName 1', lastName: 'LastName 1', photoUrl: 'http://api.randomuser.me/portraits/men/49.jpg', createdAt: new Date(), classroom: 1 }
-      { id: 2, firstName: 'FirstName 2', lastName: 'LastName 2', photoUrl: 'http://api.randomuser.me/portraits/women/34.jpg', createdAt: new Date(), classroom: 1 }
-      { id: 3, firstName: 'FirstName 3', lastName: 'LastName 3', photoUrl: 'http://api.randomuser.me/portraits/women/56.jpg', createdAt: new Date(), classroom: 3 }
+      { id: 1, firstName: 'Juan Gonzalo', lastName: 'Mendoza Gómez', photoUrl: 'http://api.randomuser.me/portraits/men/49.jpg', createdAt: new Date(), classroom: 1 }
+      { id: 2, firstName: 'Miriam', lastName: 'Rodriguez Armenta', photoUrl: 'http://api.randomuser.me/portraits/women/34.jpg', createdAt: new Date(), classroom: 1 }
+      { id: 3, firstName: 'Karla Beatriz', lastName: 'Montes de Oca Jimenez', photoUrl: 'http://api.randomuser.me/portraits/women/56.jpg', createdAt: new Date(), classroom: 3 }
     ]
 
 `export default Classmate`

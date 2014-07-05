@@ -1,26 +1,52 @@
 .row
-  ol.breadcrumb
-    li
-      link-to "application"
-        | Inicio
-    li
-      link-to "schools"
-        | Escuelas
-    li.active Aulas
+  span.col-md-12
+    ol.breadcrumb
+      li
+        link-to "application"
+          | Inicio
+      li
+        link-to "schools"
+          | Escuelas
+      li.active Aulas
 
 .row
-  span.col-md-12
-    h2#title.page-header
+  .col-md-10
+    h2#title
       i.fa.fa-book
       |  Aulas 
-      small  = name
+      small = name
+  .col-md-2
+    .pull-right style="margin-top:20px;"
+      bs-button type="primary" clicked="addSchool"
+        i.fa.fa-plus-circle
+        |  Agregar Aula
+hr
+.row
+  .col-md-8
+  .col-md-4
+    .pull-right
+      span.text-muted
+        b 1
+        |  - 
+        b = classrooms.length
+        |  de 
+        b = classrooms.length
+        |  
+      .btn-group.btn-group-sm
+        button.btn.btn-default type="button" disabled="disabled"
+          i.fa.fa-chevron-left
+        button.btn.btn-default type="button" disabled="disabled"
+          i.fa.fa-chevron-right
 
-    table.table.table-condensed
+.row
+  .col-md-2
+  .col-md-10
+    table#classroom-table.table.table-hover
       thead
         tr
-          th Etapa
-          th Periodo
-          th Aula
+          th.col-md-2
+          th.col-md-2
+          th.col-md-2
           th
             i.fa.fa-group
           th
@@ -28,7 +54,7 @@
           th
             i.fa.fa-check-square-o
           th
-            i.fa.fa-retweet
+            i.fa.fa-share-alt
           th
       tbody
         each classroom in classrooms
@@ -46,6 +72,30 @@
               link-to "classmates" id classroom.id class="btn btn-success"
                 i.fa.fa-group
                 |  Alumnos
+              |  
+              .btn-group
+                button.btn.btn-info.dropdown-toogle data-toggle="dropdown"
+                  | Resultados
+                  span.caret
+                ul.dropdown-menu role="menu"
+                  li
+                    a
+                      i.fa.fa-comment-o
+                      |  Votaciones
+                  li
+                    a
+                      i.fa.fa-check-square-o
+                      |  Encuestas
+                  li
+                    a 
+                      i.fa.fa-share-alt
+                      |  Sociograma
+              |  
+              link-to "application" class="btn btn-primary"
+                i.fa.fa-pencil
+              |  
+              link-to "application" class="btn btn-danger"
+                i.fa.fa-trash-o
         else
           tr
             td No hay Aulas.

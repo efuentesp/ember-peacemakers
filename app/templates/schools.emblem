@@ -1,92 +1,74 @@
 .row
-  ol.breadcrumb
-    li
-      link-to "application"
-        | Inicio
-    li.active Escuelas
-
-.row
-  span.col-md-8
-    #add-panel.collapse.filter-panel
-      .panel.panel-primary
-        .panel-heading
-          h3.panel-title Agregar Escuela
-        .panel-body
-          .row
-            .col-md-3 align="center"
-              img.img-circle src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
-            .col-md-5
-              form role="form"
-                .form-group
-                  label for="schoolName" Nombre
-                  .input-group
-                    input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" value=schoolName
-                    span.input-group-addon.danger
-                      i.fa.fa-times
-                .form-group
-                  label for="schoolType" Tipo
-                  .input-group
-                    select#schoolType.form-control name="schoolType" placeholder="Seleccionar tipo"
-                      option -- Seleccionar --
-                      option Pública
-                      option Privada
-                    span.input-group-addon.danger
-                      i.fa.fa-times
-        .panel-footer
-          bs-button type="primary" clicked="addSchool"
-            i.fa.fa-save
-          .span.pull-right
-            bs-button data-toggle="collapse" data-target="#add-panel"
-              | Cerrar
-    bs-button type="primary" data-toggle="collapse" data-target="#add-panel"
-      i.fa.fa-plus
-
-.row
   span.col-md-12
-    .panel.panel-primary
-      .panel-heading
-        h3.panel-title
-          i.fa.fa-bell-o
-          |  Escuelas
-        span.pull-right.clickable.filter data-toogle="tooltip" title="Buscar Escuelas" data-container="body"
-          i.fa.fa-search
-      .panel-body
-        .container
-          .row
-            #custom-search-input
-              .input-group.col-md-6
-                input#scool-filter.form-control.search-query type="text" data-action="filter" data-filters="#school-table" placeholder="Buscar Escuelas"
-                span.input-group-btn
-                  button.btn.btn-default type="button"
-                    i.fa.fa-search
-      table.school-table.table.table-hover
-        thead
+    ol.breadcrumb
+      li
+        link-to "application"
+          | Inicio
+      li.active Escuelas
+
+.row
+  .col-md-8
+    h2#title
+      i.fa.fa-bell-o
+      |  Escuelas
+  .col-md-4
+    .pull-right style="margin-top:20px;"
+      bs-button type="primary" clicked="addSchool"
+        i.fa.fa-plus-circle
+        |  Agregar Escuela
+hr
+.row
+  .col-md-10
+    .input-group
+      .input-group-addon
+        i.fa.fa-search
+      input#school-filter.form-control type="text" placeholder="Buscar Escuela..."
+  .col-md-2
+    .pull-right
+      span.text-muted
+        b 1
+        |  - 
+        b = controller.length
+        |  de 
+        b = controller.length
+        |  
+      .btn-group.btn-group-sm
+        button.btn.btn-default type="button" disabled="disabled"
+          i.fa.fa-chevron-left
+        button.btn.btn-default type="button" disabled="disabled"
+          i.fa.fa-chevron-right
+
+.row
+  .col-md-12
+    table#school-table.table.table-hover
+      thead
+        tr
+          th.col-md-6 
+          th.col-md-4 
+          th
+          th
+      tbody
+        each controller
           tr
-            th Escuela
-            th Tipo
-            th
-        tbody
-          each controller
-            tr
-              td = name
-              td = type
-              td
-                link-to "classrooms" this class="btn btn-success"
-                  i.fa.fa-book.icon-white
-                  |  Aulas
-                .btn-group
-                  button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown"
-                    | Acción 
-                    span.caret
-                  ul.dropdown-menu role="menu"
-                    li
-                      link-to "application"
-                        i.fa.fa-pencil.icon-white
-                        |  Editar
-                    li
-                      link-to "application"
-                        i.fa.fa-trash-o.icon-white
-                        |  Eliminar
-          else
-            tr
-              td No hay Escuelas.
+            td 
+              b = name 
+              h6
+                bs-label content="Nueva" type="info"
+            td
+              = city
+              | ,  
+              = state
+              h5.text-muted = type
+            td
+              link-to "classrooms" this class="btn btn-success"
+                i.fa.fa-book
+                |  Aulas
+            td
+              link-to "application" class="btn btn-primary"
+                i.fa.fa-pencil
+              |  
+              link-to "application" class="btn btn-danger"
+                i.fa.fa-trash-o
+        else
+          tr
+            td No hay Escuelas.
