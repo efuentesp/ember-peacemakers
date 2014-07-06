@@ -10,9 +10,11 @@ Router.map ->
   @resource 'classrooms', { path: '/schools/:school_id/classrooms' }
   @resource 'classmates', { path: '/schools/:school_id/classrooms/:classroom_id' }
   @route 'setup'
+  @route 'sociometricTestResults'
 
   @route 'studentDashboard', { path: '/student/:student_id' }
   @route 'sociometricTestAssigned'
+  @route 'surveyAssigned'
 
   #@route 'component-test'
   #@route 'helper-test'

@@ -75,11 +75,11 @@ hr
               |  
               .btn-group
                 button.btn.btn-info.dropdown-toogle data-toggle="dropdown"
-                  | Resultados
+                  | Resultados 
                   span.caret
                 ul.dropdown-menu role="menu"
                   li
-                    a
+                    link-to "sociometricTestResults"
                       i.fa.fa-comment-o
                       |  Votaciones
                   li

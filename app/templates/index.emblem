@@ -52,7 +52,7 @@
               br
               |  Photos
           |  
-          link-to "student" class="btn btn-primary btn-lg" role="button"
+          link-to "index" class="btn btn-primary btn-lg" role="button"
             span
               i.fa.fa-group
               br
