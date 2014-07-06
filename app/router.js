@@ -20,9 +20,10 @@ Router.map(function() {
     path: '/schools/:school_id/classrooms/:classroom_id'
   });
   this.route('setup');
-  return this.route('student_dashboard', {
+  this.route('studentDashboard', {
     path: '/student/:student_id'
   });
+  return this.route('sociometricTestAssigned');
 });
 
 export default Router;

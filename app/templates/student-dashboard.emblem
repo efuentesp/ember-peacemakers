@@ -34,7 +34,7 @@ br
               td 1
               td ¿Quién quiero que sea mi compañero de Grupo?
               td
-                link-to "index" class="btn btn-success btn-block"
+                link-to "sociometricTestAssigned" class="btn btn-success btn-block"
                   i.fa.fa-comment-o
                   b  VOTAR
             tr
