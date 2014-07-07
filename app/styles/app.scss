@@ -221,3 +221,36 @@ overflow: hidden;
   font-size:160px;
   padding:0;
 }
+
+/* RESULTS PER STUDENT */
+.student-result-card
+{
+  padding: 0px;
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  margin: 20px 0px 10px 0px;
+  padding: 10px 10px 10px 10px;
+  background-color:#fff;
+  box-shadow: 0 0 5px #777;
+}
+
+/* PROGRESS BAR */
+.progress {
+  position: relative;
+  height: 25px;
+}
+.progress > .progress-type {
+  position: absolute;
+  left: 0px;
+  font-weight: 800;
+  padding: 3px 150px 3px 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(25, 25, 25, 0.2);
+}
+.progress > .progress-completed {
+  position: absolute;
+  right: 0px;
+  font-weight: 800;
+  padding: 3px 10px 2px;
+}
