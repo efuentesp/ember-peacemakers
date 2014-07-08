@@ -11,6 +11,8 @@ Router.map ->
   @resource 'classmates', { path: '/schools/:school_id/classrooms/:classroom_id' }
   @route 'setup'
   @route 'sociometricTestResults'
+  @route 'surveyResults'
+  @route 'sociogram'
 
   @route 'studentDashboard', { path: '/student/:student_id' }
   @route 'sociometricTestAssigned'

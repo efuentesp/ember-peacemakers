@@ -21,6 +21,8 @@ Router.map(function() {
   });
   this.route('setup');
   this.route('sociometricTestResults');
+  this.route('surveyResults');
+  this.route('sociogram');
   this.route('studentDashboard', {
     path: '/student/:student_id'
   });

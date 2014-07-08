@@ -1,84 +1,85 @@
-.row
-  .col-md-4.col-md-offset-4.user-details
-    img.profile-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .user-info-block
-        h3.text-center Juan José Machado Huerta
-        span
-          h4.text-center
-            b Colegio México
-          h5.text-center
-            | 1A
-            | , 
-            | Preparatoria
-            |  (
-            | 2013-2014
-            | )
-br
+.container
+  .row
+    .col-md-4.col-md-offset-4.user-details
+      img.profile-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .user-info-block
+          h3.text-center Juan José Machado Huerta
+          span
+            h4.text-center
+              b Colegio México
+            h5.text-center
+              | 1A
+              | , 
+              | Preparatoria
+              |  (
+              | 2013-2014
+              | )
+  br
 
-.row
-  .col-md-12
-    h2
-      i.fa.fa-comment-o
-      |  Encuesta
-      small
-        |  Cuenta Conmigo
-    hr
-    .alert.alert-warning role="alert"
-      b Instrucciones:
-      p ...
+  .row
+    .col-md-12
+      h2
+        i.fa.fa-comment-o
+        |  Encuesta
+        small
+          |  Cuenta Conmigo
+      hr
+      .alert.alert-warning role="alert"
+        b Instrucciones:
+        p ...
 
-.row
-  .col-md-12
-    .survey-container
-      .row
-        .col-md-12
-          .survey-header
-            b
-              | Avance 
-              span (7 de 50)
-            .progress
-              bs-progress progress=30 type="warning"
+  .row
+    .col-md-12
+      .survey-container
+        .row
+          .col-md-12
+            .survey-header
+              b
+                | Avance 
+                span (7 de 50)
+              .progress
+                bs-progress progress=30 type="warning"
 
-      .row
-        .survey-content
-          h3 Me guardo las cosas, no digo lo que pienso.
-          hr
-          .survey-answers
-            .radio
-              label
-                input#vote1 type="radio" name="vote" value=""
-                  | Agresor
-            .radio
-              label
-                input#vote1 type="radio" name="vote" value=""
-                  | Victima
-            .radio
-              label
-                input#vote1 type="radio" name="vote" value=""
-                  | Rechazado
-            .radio
-              label
-                input#vote1 type="radio" name="vote" value=""
-                  | Peacemaker
-      .row
-        .survey-content.text-center
-          i.fa.fa-check-square-o.complete
-          h4 Da clic en el botón de TERMINAR para registrar tus resultados de la Encuesta.
-          br
-          br
-          button.btn.btn-success.btn-lg
-            h3
-              i.fa.fa-check-circle
-              |  TERMINAR
-          br
-          br
-      .row
-        .col-md-12
-          .survey-footer
-            button.btn.btn-info.btn-lg
-              i.fa.fa-caret-left
-              |  ANTERIOR
-            |   
-            button.btn.btn-info.btn-lg disabled="disabled"
-              | SIGUIENTE 
-              i.fa.fa-caret-right
+        .row
+          .survey-content
+            h3 Me guardo las cosas, no digo lo que pienso.
+            hr
+            .survey-answers
+              .radio
+                label
+                  input#vote1 type="radio" name="vote" value=""
+                    | Agresor
+              .radio
+                label
+                  input#vote1 type="radio" name="vote" value=""
+                    | Victima
+              .radio
+                label
+                  input#vote1 type="radio" name="vote" value=""
+                    | Rechazado
+              .radio
+                label
+                  input#vote1 type="radio" name="vote" value=""
+                    | Peacemaker
+        .row
+          .survey-content.text-center
+            i.fa.fa-check-square-o.complete
+            h4 Da clic en el botón de TERMINAR para registrar tus resultados de la Encuesta.
+            br
+            br
+            button.btn.btn-success.btn-lg
+              h3
+                i.fa.fa-check-circle
+                |  TERMINAR
+            br
+            br
+        .row
+          .col-md-12
+            .survey-footer
+              button.btn.btn-info.btn-lg
+                i.fa.fa-caret-left
+                |  ANTERIOR
+              |   
+              button.btn.btn-info.btn-lg disabled="disabled"
+                | SIGUIENTE 
+                i.fa.fa-caret-right

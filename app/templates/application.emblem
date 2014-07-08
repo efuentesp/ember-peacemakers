@@ -69,13 +69,13 @@
                           .navbar-footer-content
                             .row
                               .col-md-6
-                                a.btn.btn-default.btn-sm Cambiar Contraseña                
+                                a.btn.btn-default.btn-sm Cambiar Contraseña
                 li
                   link-to 'login'
                     i.fa.fa-sign-in
                     |  Entrar
 
-  section#body.container
+  section#body
     section#main
       = outlet
 

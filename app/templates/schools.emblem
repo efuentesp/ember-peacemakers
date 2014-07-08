@@ -1,74 +1,75 @@
-.row
-  span.col-md-12
-    ol.breadcrumb
-      li
-        link-to "application"
-          | Inicio
-      li.active Escuelas
+.container
+  .row
+    span.col-md-12
+      ol.breadcrumb
+        li
+          link-to "application"
+            | Inicio
+        li.active Escuelas
 
-.row
-  .col-md-8
-    h2#title
-      i.fa.fa-bell-o
-      |  Escuelas
-  .col-md-4
-    .pull-right style="margin-top:20px;"
-      bs-button type="primary" clicked="addSchool"
-        i.fa.fa-plus-circle
-        |  Agregar Escuela
-hr
-.row
-  .col-md-10
-    .input-group
-      .input-group-addon
-        i.fa.fa-search
-      input#school-filter.form-control type="text" placeholder="Buscar Escuela..."
-  .col-md-2
-    .pull-right
-      span.text-muted
-        b 1
-        |  - 
-        b = controller.length
-        |  de 
-        b = controller.length
-        |  
-      .btn-group.btn-group-sm
-        button.btn.btn-default type="button" disabled="disabled"
-          i.fa.fa-chevron-left
-        button.btn.btn-default type="button" disabled="disabled"
-          i.fa.fa-chevron-right
+  .row
+    .col-md-8
+      h2#title
+        i.fa.fa-bell-o
+        |  Escuelas
+    .col-md-4
+      .pull-right style="margin-top:20px;"
+        bs-button type="primary" clicked="addSchool"
+          i.fa.fa-plus-circle
+          |  Agregar Escuela
+  hr
+  .row
+    .col-md-10
+      .input-group
+        .input-group-addon
+          i.fa.fa-search
+        input#school-filter.form-control type="text" placeholder="Buscar Escuela..."
+    .col-md-2
+      .pull-right
+        span.text-muted
+          b 1
+          |  - 
+          b = controller.length
+          |  de 
+          b = controller.length
+          |  
+        .btn-group.btn-group-sm
+          button.btn.btn-default type="button" disabled="disabled"
+            i.fa.fa-chevron-left
+          button.btn.btn-default type="button" disabled="disabled"
+            i.fa.fa-chevron-right
 
-.row
-  .col-md-12
-    table#school-table.table.table-hover
-      thead
-        tr
-          th.col-md-6 
-          th.col-md-4 
-          th
-          th
-      tbody
-        each controller
+  .row
+    .col-md-12
+      table#school-table.table.table-hover
+        thead
           tr
-            td 
-              b = name 
-              h6
-                bs-label content="Nueva" type="info"
-            td
-              = city
-              | ,  
-              = state
-              h5.text-muted = type
-            td
-              link-to "classrooms" this class="btn btn-success"
-                i.fa.fa-book
-                |  Aulas
-            td
-              link-to "application" class="btn btn-primary"
-                i.fa.fa-pencil
-              |  
-              link-to "application" class="btn btn-danger"
-                i.fa.fa-trash-o
-        else
-          tr
-            td No hay Escuelas.
+            th.col-md-6 
+            th.col-md-4 
+            th
+            th
+        tbody
+          each controller
+            tr
+              td 
+                b = name 
+                h6
+                  bs-label content="Nueva" type="info"
+              td
+                = city
+                | ,  
+                = state
+                h5.text-muted = type
+              td
+                link-to "classrooms" this class="btn btn-success"
+                  i.fa.fa-book
+                  |  Aulas
+              td
+                link-to "application" class="btn btn-primary"
+                  i.fa.fa-pencil
+                |  
+                link-to "application" class="btn btn-danger"
+                  i.fa.fa-trash-o
+          else
+            tr
+              td No hay Escuelas.

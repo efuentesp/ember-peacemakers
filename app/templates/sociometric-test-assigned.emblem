@@ -1,194 +1,196 @@
-.row
-  .col-md-4.col-md-offset-4.user-details
-    img.profile-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .user-info-block
-        h3.text-center Juan José Machado Huerta
-        span
-          h4.text-center
-            b Colegio México
-          h5.text-center
-            | 1A
-            | , 
-            | Preparatoria
-            |  (
-            | 2013-2014
-            | )
-br
+.container
+  .row
+    .col-md-4.col-md-offset-4.user-details
+      img.profile-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .user-info-block
+          h3.text-center Juan José Machado Huerta
+          span
+            h4.text-center
+              b Colegio México
+            h5.text-center
+              | 1A
+              | , 
+              | Preparatoria
+              |  (
+              | 2013-2014
+              | )
+  br
 
-.row
-  .col-md-12
-    h2
-      i.fa.fa-comment-o
-      |  Votación
-      small
-        |  Peacemaker
+  .row
+    .col-md-12
+      h2
+        i.fa.fa-comment-o
+        |  Votación
+        small
+          |  Peacemaker
+      hr
+      .alert.alert-warning role="alert"
+        b Instrucciones:
+        p ...
+
+  .row
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px; height: 62px"
+                | Nombre del Alumno tan Largo como de la Realeza
+              p
+              .sociometricTestOptions
+                .radio
+                  label
+                    input#vote1 type="radio" name="vote" value=""
+                      | Agresor
+                .radio
+                  label
+                    input#vote1 type="radio" name="vote" value=""
+                      | Victima
+                .radio
+                  label
+                    input#vote1 type="radio" name="vote" value=""
+                      | Rechazado
+                .radio
+                  label
+                    input#vote1 type="radio" name="vote" value=""
+                      | Peacemaker
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px; height: 62px;"
+                | Nombre del Alumno
+              p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
+              a.btn.btn-default
+                i.fa.fa-plus-square
+                  |  INFO
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
+                | Nombre del Alumno tan Largo como de la Realeza
+              p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
+              a.btn.btn-default
+                i.fa.fa-plus-square
+                  |  INFO
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
+                | Nombre del Alumno tan Largo como de la Realeza
+              p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
+              a.btn.btn-default
+                i.fa.fa-plus-square
+                  |  INFO
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
+                | Nombre del Alumno tan Largo como de la Realeza
+              p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
+              a.btn.btn-default
+                i.fa.fa-plus-square
+                  |  INFO
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
+                | Nombre del Alumno tan Largo como de la Realeza
+              p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
+              a.btn.btn-default
+                i.fa.fa-plus-square
+                  |  INFO
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
+                | Nombre del Alumno tan Largo como de la Realeza
+              p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
+              a.btn.btn-default
+                i.fa.fa-plus-square
+                  |  INFO
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
+                | Nombre del Alumno tan Largo como de la Realeza
+              p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
+              a.btn.btn-default
+                i.fa.fa-plus-square
+                  |  INFO
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
+                | Nombre del Alumno tan Largo como de la Realeza
+              p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
+              a.btn.btn-default
+                i.fa.fa-plus-square
+                  |  INFO
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
+                | Nombre del Alumno tan Largo como de la Realeza
+              p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
+              a.btn.btn-default
+                i.fa.fa-plus-square
+                  |  INFO
+    .col-md-3
+      .cuadro_intro_hover
+        p style="text-align:center;"
+          img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
+        .caption
+          .blur
+            .caption-text
+              h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
+                | Nombre del Alumno tan Largo como de la Realeza
+              p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
+              a.btn.btn-default
+                i.fa.fa-plus-square
+                  |  INFO
+
+  .row
     hr
-    .alert.alert-warning role="alert"
-      b Instrucciones:
-      p ...
-
-.row
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px; height: 62px"
-              | Nombre del Alumno tan Largo como de la Realeza
-            p
-            .sociometricTestOptions
-              .radio
-                label
-                  input#vote1 type="radio" name="vote" value=""
-                    | Agresor
-              .radio
-                label
-                  input#vote1 type="radio" name="vote" value=""
-                    | Victima
-              .radio
-                label
-                  input#vote1 type="radio" name="vote" value=""
-                    | Rechazado
-              .radio
-                label
-                  input#vote1 type="radio" name="vote" value=""
-                    | Peacemaker
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px; height: 62px;"
-              | Nombre del Alumno
-            p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
-            a.btn.btn-default
-              i.fa.fa-plus-square
-                |  INFO
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
-              | Nombre del Alumno tan Largo como de la Realeza
-            p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
-            a.btn.btn-default
-              i.fa.fa-plus-square
-                |  INFO
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
-              | Nombre del Alumno tan Largo como de la Realeza
-            p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
-            a.btn.btn-default
-              i.fa.fa-plus-square
-                |  INFO
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
-              | Nombre del Alumno tan Largo como de la Realeza
-            p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
-            a.btn.btn-default
-              i.fa.fa-plus-square
-                |  INFO
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
-              | Nombre del Alumno tan Largo como de la Realeza
-            p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
-            a.btn.btn-default
-              i.fa.fa-plus-square
-                |  INFO
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
-              | Nombre del Alumno tan Largo como de la Realeza
-            p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
-            a.btn.btn-default
-              i.fa.fa-plus-square
-                |  INFO
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
-              | Nombre del Alumno tan Largo como de la Realeza
-            p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
-            a.btn.btn-default
-              i.fa.fa-plus-square
-                |  INFO
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
-              | Nombre del Alumno tan Largo como de la Realeza
-            p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
-            a.btn.btn-default
-              i.fa.fa-plus-square
-                |  INFO
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
-              | Nombre del Alumno tan Largo como de la Realeza
-            p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
-            a.btn.btn-default
-              i.fa.fa-plus-square
-                |  INFO
-  .col-md-3
-    .cuadro_intro_hover
-      p style="text-align:center;"
-        img.card-img src="http://api.randomuser.me/portraits/men/49.jpg"
-      .caption
-        .blur
-          .caption-text
-            h4.text-center style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"
-              | Nombre del Alumno tan Largo como de la Realeza
-            p Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor..
-            a.btn.btn-default
-              i.fa.fa-plus-square
-                |  INFO
-
-.row
-  .col-md-4.col-md-offset-4
-    button.btn.btn-success.btn-lg.btn-block
-      h3
-        i.fa.fa-check-circle
-        |  VOTAR
+    .col-md-4.col-md-offset-4
+      button.btn.btn-success.btn-lg.btn-block
+        h3
+          i.fa.fa-check-circle
+          |  VOTAR

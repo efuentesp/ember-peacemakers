@@ -1,0 +1,73 @@
+.container-fluid
+  .row
+    span.col-md-12
+      ol.breadcrumb
+        li
+          link-to "application"
+            | Inicio
+        li
+          link-to "schools"
+            | Escuelas
+        li
+          link-to "index"
+            | Aulas
+        li.active Sociograma
+
+  .row
+    .col-md-3
+      #accordion.panel-group
+        .panel.panel-default
+          .panel-heading
+            h4.panel-title
+              a
+                i.fa.fa-share-alt
+                |  Alguien me elegiria como compañero
+          #collapseOne
+            .panel-body
+              table.table
+                tr
+                  td
+                    .row
+                      p
+                        i.fa.fa-comment-o
+                        |  Votación 2 
+                        span.label.label-info 2014-06-13
+                    .row
+                      form.form-inline role="form"
+                        .form-group
+                          button.btn.btn-default.btn-xs Si
+                        |  
+                        .form-group
+                          button.btn.btn-default.btn-xs No
+                tr
+                  td
+                    .row
+                      p
+                        i.fa.fa-comment-o
+                        |  Votación 1 
+                        span.label.label-info 2014-01-08
+                    .row
+                      form.form-inline role="form"
+                        .form-group
+                          button.btn.btn-default.btn-xs Si
+                        |  
+                        .form-group
+                          button.btn.btn-default.btn-xs No
+    .col-md-9
+      h2#title
+        | Instituto San Andrés (Primaria, 2012-2013 4A)
+      hr
+      br
+      .panel.panel-primary
+        .panel-heading
+          i.fa.fa-share-alt
+          |  Alguien me elegiria como compañero:
+          b  Si
+          .pull-right
+            span.label.label-info Votación 2 (2014-06-13)
+        .panel-body
+        .panel-footer
+          .input-group
+            .input-group-addon
+              i.fa.fa-search
+            input#student-filter.form-control type="text" placeholder="Buscar Alumno..."
