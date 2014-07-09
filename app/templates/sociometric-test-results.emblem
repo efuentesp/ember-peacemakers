@@ -90,9 +90,8 @@
         .panel-heading
           i.fa.fa-th
           |  Matriz de Adyacencia 
-          small (Votación 2)
           .pull-right
-            small (2014-06-13)
+            span.label.label-info Votación 2 (2014-06-13)
         .panel-body
         .panel-footer
       br
@@ -101,9 +100,8 @@
         .panel-heading
           i.fa.fa-th-large
           |  Resultados por Alumno 
-          small (Votación 2)
           .pull-right
-            small (2014-06-13)
+            span.label.label-info Votación 2 (2014-06-13)
         .panel-body
           .col-md-3
             .student-result-card
@@ -216,8 +214,7 @@
         .panel-heading
           i.fa.fa-bar-chart-o
           |  Resultados por Aula 
-          small (Votación 2)
           .pull-right
-            small (2014-06-13)
+            span.label.label-info Votación 2 (2014-06-13)
         .panel-body
         .panel-footer
