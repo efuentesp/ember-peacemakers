@@ -54,7 +54,6 @@ module('Integration Test - Schools page', {
     });
   },
   teardown: function() {
-    console.log("teardown");
     Ember.run(App, 'destroy');
     return server.shutdown();
   }
@@ -63,7 +62,7 @@ module('Integration Test - Schools page', {
 test('Should navigate to Schools page', function() {
   return visit('/').then(function() {
     return click("a:contains('Escuelas')").then(function() {
-      return equal(find('h2#title').text(), 'Escuelas');
+      return equal(find('h2#title').text(), ' Escuelas');
     });
   });
 });

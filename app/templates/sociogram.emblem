@@ -54,9 +54,14 @@
                         .form-group
                           button.btn.btn-default.btn-xs No
     .col-md-9
+      
       h2#title
         | Instituto San Andrés (Primaria, 2012-2013 4A)
       hr
+      .input-group
+        .input-group-addon
+          i.fa.fa-search
+        input#student-filter.form-control type="text" placeholder="Buscar Alumno..."
       br
       .panel.panel-primary
         .panel-heading
@@ -67,7 +72,52 @@
             span.label.label-info Votación 2 (2014-06-13)
         .panel-body
         .panel-footer
-          .input-group
-            .input-group-addon
-              i.fa.fa-search
-            input#student-filter.form-control type="text" placeholder="Buscar Alumno..."
+          bs-button type="default" class="btn-sm" data-toggle="collapse" data-target="#search-options"
+            i.fa.fa-cog
+          #search-options.collapse.filter-panel
+            br
+            table
+              tbody
+                tr
+                  td.col-md-2
+                    .form-group
+                      label for="bullyingList" Bullying
+                      .input-group
+                        select#bullyingList.form-control name="bullyingList" placeholder="Seleccionar Votación"
+                          option -- Seleccionar --
+                          option Votación 2 (20-08-2014)
+                          option Votación 1 (05-02-2014)
+                  td.col-md-2
+                    .form-group
+                      label for="continuousEvalList" Evaluación Contínua
+                      .input-group
+                        select#continuousEvalList.form-control name="continuousEvalList" placeholder="Seleccionar Encuesta"
+                          option -- Seleccionar --
+                          option Votación 2 (20-08-2014)
+                          option Votación 1 (05-02-2014)
+                  td.col-md-2
+                    .form-group
+                      label for="bullymetricList" Bullymetrica
+                      .input-group
+                        select#bullymetricList.form-control name="bullymetricList" placeholder="Seleccionar Encuesta"
+                          option -- Seleccionar --
+                          option Votación 2 (20-08-2014)
+                          option Votación 1 (05-02-2014)
+                  td.col-md-2
+                    .form-group
+                      label for="competencyList" Competencias
+                      .input-group
+                        select#competencyList.form-control name="competencyList" placeholder="Seleccionar Encuesta"
+                          option -- Seleccionar --
+                          option Votación 2 (20-08-2014)
+                          option Votación 1 (05-02-2014)
+                  td.col-md-2
+                    .form-group
+                      label for="countOnMeList" Cuenta Conmigo
+                      .input-group
+                        select#countOnMeList.form-control name="countOnMeList" placeholder="Seleccionar Encuesta"
+                          option -- Seleccionar --
+                          option Votación 2 (20-08-2014)
+                          option Votación 1 (05-02-2014)
+
+

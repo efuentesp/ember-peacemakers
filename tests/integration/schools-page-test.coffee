@@ -20,14 +20,13 @@ module 'Integration Test - Schools page',
           school if school.id == parseInt(request.params.id, 10)
         [ 200, {'Content-Type': 'application/json'}, JSON.stringify {school: school} ]
   teardown: ->
-    console.log "teardown"
     Ember.run App, 'destroy'
     server.shutdown()
 
 test 'Should navigate to Schools page', ->
   visit('/').then ->
     click("a:contains('Escuelas')").then ->
-      equal find('h2#title').text(), 'Escuelas'
+      equal find('h2#title').text(), ' Escuelas'
 
 test 'Should list all schools', ->
   visit('/schools').then ->

@@ -1,10 +1,12 @@
 `import startApp from 'pm/tests/helpers/start-app'`
 
+App = null
+
 module 'Integration Test - Home page',
   setup: ->
-    @App = startApp()
+    App = startApp()
   teardown: ->
-    Ember.run @App, 'destroy'
+    Ember.run App, 'destroy'
 
 test 'Should welcome to Home page', ->
   visit('/').then ->
