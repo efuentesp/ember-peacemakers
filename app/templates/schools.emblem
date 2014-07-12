@@ -75,8 +75,9 @@
               td No hay Escuelas.
 
 .row
-  .col-md-5 style="display: none;"
-    form role="form"
+
+  bs-modal name="schoolModal" fade=true footerButtonsBinding="modalButtons" title="Agregar Escuela"
+    form#form_school role="form"
       .form-group
         label for="schoolName" Nombre
         .input-group
@@ -88,8 +89,10 @@
         .input-group
           select#schoolType.form-control name="schoolType" placeholder="Seleccionar tipo"
             option -- Seleccionar --
-            option Pública
-            option Privada
+            option value="PUBLIC"
+              | Pública
+            option value="PRIVATE"
+              | Privada
           span.input-group-addon.danger
             i.fa.fa-times
       .form-group
@@ -103,15 +106,9 @@
         .input-group
           select#schoolState.form-control name="schoolState" placeholder="Seleccionar Estado"
             option -- Seleccionar --
-            option Distrito Federal
-            option Aguascalientes
+            option value="DF"
+              | Distrito Federal
+            option value="AGS"
+              | Aguascalientes
           span.input-group-addon.danger
             i.fa.fa-times
-      .form-group
-        .span.pull-right
-          bs-button type="primary" clicked="addSchool"
-            i.fa.fa-save
-            |  Guardar
-          |   
-          bs-button data-toggle="collapse" data-target="#add-panel"
-            | Cerrar

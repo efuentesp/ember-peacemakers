@@ -9,6 +9,11 @@ schoolsController = Ember.ArrayController.extend
 
   schoolName: ""
 
+  modalButtons: [
+    Ember.Object.create({title: 'Cancelar', clicked: "cancel", dismiss: 'modal'})
+    Ember.Object.create({title: 'Guardar', type: "primary", clicked: "submit", id: "btn_saveNewSchool"})
+  ]
+
   isValid: (->
     console.log "isValid()"
     msg = ""
@@ -31,5 +36,6 @@ schoolsController = Ember.ArrayController.extend
 
     addSchool: ->
       console.log "Add School!!"
+      return Bootstrap.ModalManager.show('schoolModal');
 
 `export default schoolsController`

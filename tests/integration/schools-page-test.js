@@ -87,14 +87,30 @@ test('Should list all schools.', function() {
   return visit('/schools').then(function() {
     equal(find("td:contains('School 1')").length, 1);
     equal(find("td:contains('School 2')").length, 1);
-    return equal(find("td:contains('School 3')").length, 1);
+    equal(find("td:contains('School 3')").length, 1);
+    return equal(find("td:contains('School 4')").length, 1);
   });
 });
 
-test('Should show Add New School form.', function() {
+test('Should show Add New School form when Add button is pressed.', function() {
   return visit('/schools').then(function() {
     return click('#btn_addSchool').then(function() {
       return ok(find('#form_school').length === 1, "Add School form not found!");
+    });
+  });
+});
+
+test('Should add a new School.', function() {
+  return visit('/schools').then(function() {
+    return click('#btn_addSchool').then(function() {
+      fillIn('#schoolName', '#form_school', 'School 5');
+      $('input#schoolCity').val('City 5');
+      $("select#schoolType option[value='PRIVATE']").attr('selected', true);
+      $("select#schoolState option[value='DF']").attr('selected', true);
+      click("button:contains('Guardar')").then(function() {
+        return ok(1 === 1);
+      });
+      debugger;
     });
   });
 });

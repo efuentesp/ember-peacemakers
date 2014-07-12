@@ -2,6 +2,8 @@
 import DS from 'ember-data';
 var ApplicationAdapter;
 
-ApplicationAdapter = DS.FixtureAdapter;
+ApplicationAdapter = DS.RESTAdapter.extend({
+  namespace: 'api'
+});
 
 export default ApplicationAdapter;

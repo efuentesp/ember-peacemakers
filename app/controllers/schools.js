@@ -6,6 +6,18 @@ schoolsController = Ember.ArrayController.extend({
   sortProperties: ['name'],
   sortAscending: false,
   schoolName: "",
+  modalButtons: [
+    Ember.Object.create({
+      title: 'Cancelar',
+      clicked: "cancel",
+      dismiss: 'modal'
+    }), Ember.Object.create({
+      title: 'Guardar',
+      type: "primary",
+      clicked: "submit",
+      id: "btn_saveNewSchool"
+    })
+  ],
   isValid: (function() {
     var isValid, msg, str;
     console.log("isValid()");
@@ -25,7 +37,8 @@ schoolsController = Ember.ArrayController.extend({
       return console.log("List Classrooms!!");
     },
     addSchool: function() {
-      return console.log("Add School!!");
+      console.log("Add School!!");
+      return Bootstrap.ModalManager.show('schoolModal');
     }
   }
 });

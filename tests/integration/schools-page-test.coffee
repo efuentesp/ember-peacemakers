@@ -34,11 +34,25 @@ test 'Should navigate to Schools page and highlight menu option.', ->
 
 test 'Should list all schools.', ->
   visit('/schools').then ->
+    #expect 4
     equal find("td:contains('School 1')").length, 1
     equal find("td:contains('School 2')").length, 1
     equal find("td:contains('School 3')").length, 1
+    equal find("td:contains('School 4')").length, 1
 
-test 'Should show Add New School form.', ->
+test 'Should show Add New School form when Add button is pressed.', ->
   visit('/schools').then ->
     click('#btn_addSchool').then ->
       ok find('#form_school').length == 1, "Add School form not found!"
+
+test 'Should add a new School.', ->
+  visit('/schools').then ->
+    click('#btn_addSchool').then ->
+      fillIn '#schoolName', '#form_school', 'School 5'
+      #fillIn '#schoolCity', '#form_school', 'City 5'
+      $('input#schoolCity').val('City 5')
+      $("select#schoolType option[value='PRIVATE']").attr('selected', true)
+      $("select#schoolState option[value='DF']").attr('selected', true)
+      click("button:contains('Guardar')").then ->
+        ok 1==1
+      debugger
