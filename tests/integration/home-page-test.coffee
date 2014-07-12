@@ -8,11 +8,14 @@ module 'Integration Test - Home page',
   teardown: ->
     Ember.run App, 'destroy'
 
-test 'Should welcome to Home page', ->
+test 'Should welcome to Home page.', ->
   visit('/').then ->
-    equal find("a:contains('Inicio')").hasClass('active'), true
+    equal find('#nav_home.nav.active').length, 1
+    #equal find('.nav.active a').text(), ' Inicio'
+    #equal find("a:contains('Inicio')").hasClass('active'), true
 
-test 'Should allow navigating back to Home from another page', ->
-  visit('/schools').then ->
-    click("a:contains('Inicio')").then ->
-      notEqual find('h2#title').text(), 'Inicio'
+test 'Should allow navigating back to Home from another page.', ->
+  visit('/login').then ->
+    click('#nav_home').then ->
+      equal find('#nav_home.nav.active').length, 1
+      #equal find('.nav.active a').text(), ' Inicio'

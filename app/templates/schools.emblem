@@ -14,7 +14,7 @@
         |  Escuelas
     .col-md-4
       .pull-right style="margin-top:20px;"
-        bs-button type="primary" clicked="addSchool"
+        bs-button type="primary" id="btn_addSchool" clicked="addSchool"
           i.fa.fa-plus-circle
           |  Agregar Escuela
   hr
@@ -75,7 +75,7 @@
               td No hay Escuelas.
 
 .row
-  .col-md-5
+  .col-md-5 style="display: none;"
     form role="form"
       .form-group
         label for="schoolName" Nombre

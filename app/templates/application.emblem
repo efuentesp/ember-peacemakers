@@ -13,16 +13,16 @@
             a.navbar-brand href="/" Peacemakers
           .navbar-collapse.collapse
             ul.nav.navbar-nav
-              li.nav.active
-                link-to "index"
+              link-to "index" id="nav_home" class="nav" tagName="li" href=false
+                link-to "index" bubbles=false
                   i.fa.fa-home
                   |  Inicio
-              li.nav
-                link-to "schools"
+              link-to "schools" id="nav_schools" class="nav" tagName="li" href=false
+                link-to "schools" bubbles=false
                   i.fa.fa-bell-o
                   |  Escuelas
-              li.nav
-                link-to "setup"
+              link-to "setup" id="nav_setup" class="nav" tagName="li" href=false
+                link-to "setup" bubbles=false
                   i.fa.fa-cog
                   |  Configuración
             ul.nav.navbar-nav.navbar-right

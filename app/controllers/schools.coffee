@@ -2,6 +2,8 @@
 
 schoolsController = Ember.ArrayController.extend
 
+  #itemController: "SchoolController"
+
   sortProperties: ['name']
   sortAscending: false
 

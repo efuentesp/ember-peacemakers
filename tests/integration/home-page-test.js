@@ -13,16 +13,16 @@ module('Integration Test - Home page', {
   }
 });
 
-test('Should welcome to Home page', function() {
+test('Should welcome to Home page.', function() {
   return visit('/').then(function() {
-    return equal(find("a:contains('Inicio')").hasClass('active'), true);
+    return equal(find('#nav_home.nav.active').length, 1);
   });
 });
 
-test('Should allow navigating back to Home from another page', function() {
-  return visit('/schools').then(function() {
-    return click("a:contains('Inicio')").then(function() {
-      return notEqual(find('h2#title').text(), 'Inicio');
+test('Should allow navigating back to Home from another page.', function() {
+  return visit('/login').then(function() {
+    return click('#nav_home').then(function() {
+      return equal(find('#nav_home.nav.active').length, 1);
     });
   });
 });
