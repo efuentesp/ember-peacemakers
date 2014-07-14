@@ -24,118 +24,176 @@ hr {
   background-color: #fff;
 }
 
+.btn-dark {
+  color: #fff;
+  background-color: #242633;
+  border-color: #191b24;
+}
+.btn-dark.active,
+.btn-dark:active,
+.btn-dark:focus,
+.btn-dark:hover,
+.open>.btn-dark.dropdown-toggle {
+  color:#fff;
+  background-color:#0f1015;
+  border-color:#000
+}
+.btn-dark.active,
+.btn-dark:active,
+.open>.btn-dark.dropdown-toggle {
+  background-image:none
+}
+.btn-dark.disabled,
+.btn-dark.disabled.active,
+.btn-dark.disabled:active,
+.btn-dark.disabled:focus,
+.btn-dark.disabled:hover,
+.btn-dark[disabled],
+.btn-dark[disabled].active,
+.btn-dark[disabled]:active,
+.btn-dark[disabled]:focus,
+.btn-dark[disabled]:hover,
+fieldset[disabled] .btn-dark,
+fieldset[disabled] .btn-dark.active,
+fieldset[disabled] .btn-dark:active,
+fieldset[disabled] .btn-dark:focus,
+fieldset[disabled] .btn-dark:hover {
+  background-color:#242633;
+  border-color:#191b24
+}
+.btn-dark .badge {
+  color:#242633;
+  background-color:#fff
+}
+
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px; }
+  .breadcrumb > li {
+    display: inline-block; }
+    .breadcrumb > li + li:before {
+      content: ">";
+      padding: 0 5px;
+      color: #ccc; }
+  .breadcrumb > .active {
+    color: #777777;
+}
+
 /* LOGIN */
 .form-signin
 {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
-    padding-top: 5px;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+  padding-top: 5px;
 }
 .form-signin .form-signin-heading, .form-signin .checkbox
 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 .form-signin .checkbox
 {
-    font-weight: normal;
+  font-weight: normal;
 }
 .form-signin .form-control
 {
-    position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .form-signin .form-control:focus
 {
-    z-index: 2;
+  z-index: 2;
 }
 .form-signin input[type="password"]
 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 .account-wall
 {
-    margin-top: 20px;
-    padding: 40px 0px 20px 0px;
-    background-color: #f7f7f7;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  padding: 40px 0px 20px 0px;
+  background-color: #f7f7f7;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 .login-title
 {
-    color: #555;
-    font-size: 24px;
-    font-weight: 400;
-    display: block;
+  color: #555;
+  font-size: 24px;
+  font-weight: 400;
+  display: block;
 }
 .profile-img
 {
-    width: 110px;
-    height: 110px;
-    margin: 0 auto 10px;
-    display: block;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 /* VALIDATION CONTROLS */
 .input-group-addon.primary {
-    color: rgb(255, 255, 255);
-    background-color: rgb(50, 118, 177);
-    border-color: rgb(40, 94, 142);
+  color: rgb(255, 255, 255);
+  background-color: rgb(50, 118, 177);
+  border-color: rgb(40, 94, 142);
 }
 .input-group-addon.success {
-    color: rgb(255, 255, 255);
-    background-color: rgb(92, 184, 92);
-    border-color: rgb(76, 174, 76);
+  color: rgb(255, 255, 255);
+  background-color: rgb(92, 184, 92);
+  border-color: rgb(76, 174, 76);
 }
 .input-group-addon.info {
-    color: rgb(255, 255, 255);
-    background-color: rgb(57, 179, 215);
-    border-color: rgb(38, 154, 188);
+  color: rgb(255, 255, 255);
+  background-color: rgb(57, 179, 215);
+  border-color: rgb(38, 154, 188);
 }
 .input-group-addon.warning {
-    color: rgb(255, 255, 255);
-    background-color: rgb(240, 173, 78);
-    border-color: rgb(238, 162, 54);
+  color: rgb(255, 255, 255);
+  background-color: rgb(240, 173, 78);
+  border-color: rgb(238, 162, 54);
 }
 .input-group-addon.danger {
-    color: rgb(255, 255, 255);
-    background-color: rgb(217, 83, 79);
-    border-color: rgb(212, 63, 58);
+  color: rgb(255, 255, 255);
+  background-color: rgb(217, 83, 79);
+  border-color: rgb(212, 63, 58);
 }
 
 /* NAVBAR ACCOUNT MANAGER */
 .navbar-content
 {
-    width:320px;
-    padding: 15px;
-    padding-bottom:0px;
+  width:320px;
+  padding: 15px;
+  padding-bottom:0px;
 }
 .navbar-content:before, .navbar-content:after
 {
-    display: table;
-    content: "";
-    line-height: 0;
+  display: table;
+  content: "";
+  line-height: 0;
 }
 .navbar-nav.navbar-right:last-child {
-margin-right: 15px !important;
+  margin-right: 15px !important;
 }
 .navbar-footer 
 {
-    background-color:#DDD;
+  background-color:#DDD;
 }
 .navbar-footer-content { padding:15px 15px 15px 15px; }
 .dropdown-menu {
-padding: 0px;
-overflow: hidden;
+  padding: 0px;
+  overflow: hidden;
 }
 
 /* SOCIOMETRIC TEST CARD */
@@ -186,10 +244,10 @@ overflow: hidden;
 }
 .card-img
 {
-    width: 260px;
-    height: 260px;
-    margin: 0 auto 10px;
-    display: block;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 10px;
+  display: block;
 }
 
 /* SURVEYS */

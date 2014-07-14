@@ -108,7 +108,7 @@ test('Should add a new School.', function() {
       $("select#schoolType option[value='PRIVATE']").attr('selected', true);
       $("select#schoolState option[value='DF']").attr('selected', true);
       return click("button:contains('Guardar')").then(function() {
-        return equal(find("td:contains('School 5)").length, 1, "New School not found!");
+        return equal(find("td:contains('School 5')").length, 1, "New School not found!");
       });
     });
   });

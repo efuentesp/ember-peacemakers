@@ -4,10 +4,25 @@ schoolsController = Ember.ArrayController.extend
 
   itemController: "school"
 
-  sortProperties: ['name']
-  sortAscending: false
+  sortProperties: ['createdAt']
+  sortAscending: true
 
   schoolName: ""
+  schoolType:
+    id: ''
+  schoolTypes: [
+    { id: '', name: '-- Seleccionar --' }
+    { id: 'PUBLIC', name: 'Pública' }
+    { id: 'PRIVATE', name: 'Privada' }
+  ]
+
+  schoolState:
+    id: ''
+  schoolStates: [
+    { id: '', name: '-- Seleccionar --' }
+    { id: 'MX-DIF', name: 'Distrito Federal' }
+    { id: 'MX-AGU', name: 'Aguascalientes' }
+  ]
 
   modalButtons: [
     Ember.Object.create({title: 'Cancelar', clicked: "cancel", dismiss: 'modal'})
@@ -38,16 +53,20 @@ schoolsController = Ember.ArrayController.extend
 
     # Row Actions
     submit: ->
-      console.log "SUBMIT!!"
+      console.log @schoolStates
+      console.log @schoolState.id
+      schoolStateSelected = _.find @schoolStates, { 'id': @schoolState.id }
+      console.log schoolStateSelected.name
       school = @get('store').createRecord 'school',
         name: @schoolName
-        type: @schoolType
+        type: @schoolType.id
         city: @schoolCity
-        state: @schoolState
+        state: @schoolState.id
         createdAt: new Date()
       @set('schoolName', '')
       @set('schoolCity', '')
-      #@get('store').commit()
+      @set('schoolType', '')
+      @set('schoolState', '')
       promise = school.save()
       Bootstrap.ModalManager.hide 'schoolModal', (error) ->
         school.rollback()

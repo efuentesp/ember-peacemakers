@@ -86,6 +86,8 @@ app.import({development: 'vendor/pretender/pretender.js'});
 
 app.import('vendor/moment/moment.js');
 
+app.import('vendor/lodash/dist/lodash.min.js');
+
 //module.exports = app.toTree();
 module.exports = mergeTrees([
   app.toTree(),

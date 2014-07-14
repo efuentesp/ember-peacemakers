@@ -3,7 +3,8 @@
     ol.breadcrumb
       li
         link-to "application"
-          | Inicio
+          i.fa.fa-home
+          |  Inicio
       li
         link-to "schools"
           | Escuelas
@@ -29,7 +30,7 @@
           i.fa.fa-plus-circle
           |  Agregar Alumno
         |  
-        bs-button type="info" clicked="addSchool"
+        bs-button type="dark" clicked="addSchool"
           i.fa.fa-file-zip-o
           |  Cargar Archivo ZIP
         |  

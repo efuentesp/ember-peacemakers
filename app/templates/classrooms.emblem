@@ -4,7 +4,8 @@
       ol.breadcrumb
         li
           link-to "application"
-            | Inicio
+            i.fa.fa-home
+            |  Inicio
         li
           link-to "schools"
             | Escuelas

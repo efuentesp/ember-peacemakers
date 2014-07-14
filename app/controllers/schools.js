@@ -4,9 +4,39 @@ var schoolsController;
 
 schoolsController = Ember.ArrayController.extend({
   itemController: "school",
-  sortProperties: ['name'],
-  sortAscending: false,
+  sortProperties: ['createdAt'],
+  sortAscending: true,
   schoolName: "",
+  schoolType: {
+    id: ''
+  },
+  schoolTypes: [
+    {
+      id: '',
+      name: '-- Seleccionar --'
+    }, {
+      id: 'PUBLIC',
+      name: 'Pública'
+    }, {
+      id: 'PRIVATE',
+      name: 'Privada'
+    }
+  ],
+  schoolState: {
+    id: ''
+  },
+  schoolStates: [
+    {
+      id: '',
+      name: '-- Seleccionar --'
+    }, {
+      id: 'MX-DIF',
+      name: 'Distrito Federal'
+    }, {
+      id: 'MX-AGU',
+      name: 'Aguascalientes'
+    }
+  ],
   modalButtons: [
     Ember.Object.create({
       title: 'Cancelar',
@@ -25,17 +55,24 @@ schoolsController = Ember.ArrayController.extend({
       return Bootstrap.ModalManager.show('schoolModal');
     },
     submit: function() {
-      var promise, school;
-      console.log("SUBMIT!!");
+      var promise, school, schoolStateSelected;
+      console.log(this.schoolStates);
+      console.log(this.schoolState.id);
+      schoolStateSelected = _.find(this.schoolStates, {
+        'id': this.schoolState.id
+      });
+      console.log(schoolStateSelected.name);
       school = this.get('store').createRecord('school', {
         name: this.schoolName,
-        type: this.schoolType,
+        type: this.schoolType.id,
         city: this.schoolCity,
-        state: this.schoolState,
+        state: this.schoolState.id,
         createdAt: new Date()
       });
       this.set('schoolName', '');
       this.set('schoolCity', '');
+      this.set('schoolType', '');
+      this.set('schoolState', '');
       promise = school.save();
       return Bootstrap.ModalManager.hide('schoolModal', function(error) {
         school.rollback();

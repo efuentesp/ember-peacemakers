@@ -18,6 +18,7 @@
     "font-awesome": "~4.1.0",
     "ember-addons.bs_for_ember": "~0.7.0",
     "moment": "~2.7.0",
-    "bootstrap-sass-official": "~3.2.0"
+    "bootstrap-sass-official": "~3.2.0",
+    "lodash": "~2.4.1"
   }
 }

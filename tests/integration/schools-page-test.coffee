@@ -54,4 +54,4 @@ test 'Should add a new School.', ->
       $("select#schoolType option[value='PRIVATE']").attr('selected', true)
       $("select#schoolState option[value='DF']").attr('selected', true)
       click("button:contains('Guardar')").then -> # Find a way to put an Id to a Modal.
-        equal find("td:contains('School 5)").length, 1, "New School not found!"
+        equal find("td:contains('School 5')").length, 1, "New School not found!"

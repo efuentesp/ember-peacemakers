@@ -4,7 +4,8 @@
       ol.breadcrumb
         li
           link-to "application"
-            | Inicio
+            i.fa.fa-home
+            |  Inicio
         li.active Escuelas
 
   .row
@@ -51,15 +52,16 @@
         tbody
           each controller
             tr
-              td 
+              td
                 b = name 
-                h6
-                  bs-label content="Nueva" type="info"
+                if isNew
+                  h6
+                    bs-label content="Nueva" type="info"
               td
                 = city
                 | ,  
-                = state
-                h5.text-muted = type
+                = state.name
+                h5.text-muted = type.name
               td
                 link-to "classrooms" this class="btn btn-success"
                   i.fa.fa-book
@@ -81,18 +83,13 @@
       .form-group
         label for="schoolName" Nombre
         .input-group
-          = input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" valueBinding="schoolName="
+          = input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" valueBinding="schoolName"
           span.input-group-addon.danger
             i.fa.fa-times
       .form-group
         label for="schoolType" Tipo
         .input-group
-          select#schoolType.form-control name="schoolType" placeholder="Seleccionar tipo" valueBinding="schoolType"
-            option -- Seleccionar --
-            option value="PUBLIC"
-              | Pública
-            option value="PRIVATE"
-              | Privada
+          Ember.Select content=schoolTypes optionValuePath="content.id" optionLabelPath="content.name" valueBinding="schoolType.id" id="schoolType" class="form-control"
           span.input-group-addon.danger
             i.fa.fa-times
       .form-group
@@ -104,11 +101,6 @@
       .form-group
         label for="schoolState" Estado
         .input-group
-          select#schoolState.form-control name="schoolState" placeholder="Seleccionar Estado" valueBinding="schoolCity"
-            option -- Seleccionar --
-            option value="DF"
-              | Distrito Federal
-            option value="AGS"
-              | Aguascalientes
+          Ember.Select content=schoolStates optionValuePath="content.id" optionLabelPath="content.name" valueBinding="schoolState.id" id="schoolState" class="form-control"
           span.input-group-addon.danger
             i.fa.fa-times
