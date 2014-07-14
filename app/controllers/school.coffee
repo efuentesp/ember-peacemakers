@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
 
 SchoolItemController = Ember.ObjectController.extend
-  save: ->
-    console.log "School saved!!"
+  actions:
+    editSchool: ->
+      console.log "Edit School!!"
 
 `export default SchoolItemController`

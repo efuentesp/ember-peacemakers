@@ -3,8 +3,10 @@ import Ember from 'ember';
 var SchoolItemController;
 
 SchoolItemController = Ember.ObjectController.extend({
-  save: function() {
-    return console.log("School saved!!");
+  actions: {
+    editSchool: function() {
+      return console.log("Edit School!!");
+    }
   }
 });
 

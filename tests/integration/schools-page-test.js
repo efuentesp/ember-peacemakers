@@ -78,17 +78,17 @@ module('Integration Test - Schools page', {
 test('Should navigate to Schools page and highlight menu option.', function() {
   return visit('/').then(function() {
     return click('#nav_schools a').then(function() {
-      return equal(find('#nav_schools.nav.active').length, 1);
+      return equal(find('#nav_schools.nav.active').length, 1, "No School menu active!");
     });
   });
 });
 
 test('Should list all schools.', function() {
   return visit('/schools').then(function() {
-    equal(find("td:contains('School 1')").length, 1);
-    equal(find("td:contains('School 2')").length, 1);
-    equal(find("td:contains('School 3')").length, 1);
-    return equal(find("td:contains('School 4')").length, 1);
+    equal(find("td:contains('School 1')").length, 1, "No School found!");
+    equal(find("td:contains('School 2')").length, 1, "No School found!");
+    equal(find("td:contains('School 3')").length, 1, "No School found!");
+    return equal(find("td:contains('School 4')").length, 1, "No School found!");
   });
 });
 
@@ -107,10 +107,9 @@ test('Should add a new School.', function() {
       $('input#schoolCity').val('City 5');
       $("select#schoolType option[value='PRIVATE']").attr('selected', true);
       $("select#schoolState option[value='DF']").attr('selected', true);
-      click("button:contains('Guardar')").then(function() {
-        return ok(1 === 1);
+      return click("button:contains('Guardar')").then(function() {
+        return equal(find("td:contains('School 5)").length, 1, "New School not found!");
       });
-      debugger;
     });
   });
 });

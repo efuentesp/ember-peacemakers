@@ -3,6 +3,7 @@ import Ember from 'ember';
 var schoolsController;
 
 schoolsController = Ember.ArrayController.extend({
+  itemController: "school",
   sortProperties: ['name'],
   sortAscending: false,
   schoolName: "",
@@ -18,27 +19,31 @@ schoolsController = Ember.ArrayController.extend({
       id: "btn_saveNewSchool"
     })
   ],
-  isValid: (function() {
-    var isValid, msg, str;
-    console.log("isValid()");
-    msg = "";
-    isValid = true;
-    str = this.get('schoolName');
-    console.log("schoolName = " + str);
-    if (!str) {
-      isValid = false;
-      msg += "El campo no puede estar vacio.";
-    }
-    this.set('errName', msg);
-    return isValid;
-  }).property('schoolName'),
   actions: {
-    classrooms: function() {
-      return console.log("List Classrooms!!");
-    },
     addSchool: function() {
       console.log("Add School!!");
       return Bootstrap.ModalManager.show('schoolModal');
+    },
+    submit: function() {
+      var promise, school;
+      console.log("SUBMIT!!");
+      school = this.get('store').createRecord('school', {
+        name: this.schoolName,
+        type: this.schoolType,
+        city: this.schoolCity,
+        state: this.schoolState,
+        createdAt: new Date()
+      });
+      this.set('schoolName', '');
+      this.set('schoolCity', '');
+      promise = school.save();
+      return Bootstrap.ModalManager.hide('schoolModal', function(error) {
+        school.rollback();
+        return alert(error);
+      });
+    },
+    cancel: function() {
+      return console.log("Cancel!!");
     }
   }
 });

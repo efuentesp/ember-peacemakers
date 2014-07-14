@@ -65,7 +65,7 @@
                   i.fa.fa-book
                   |  Aulas
               td
-                link-to "application" class="btn btn-primary"
+                bs-button type="primary" clicked="editSchool"
                   i.fa.fa-pencil
                 |  
                 link-to "application" class="btn btn-danger"
@@ -81,13 +81,13 @@
       .form-group
         label for="schoolName" Nombre
         .input-group
-          input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" value=schoolName
+          = input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" valueBinding="schoolName="
           span.input-group-addon.danger
             i.fa.fa-times
       .form-group
         label for="schoolType" Tipo
         .input-group
-          select#schoolType.form-control name="schoolType" placeholder="Seleccionar tipo"
+          select#schoolType.form-control name="schoolType" placeholder="Seleccionar tipo" valueBinding="schoolType"
             option -- Seleccionar --
             option value="PUBLIC"
               | Pública
@@ -98,13 +98,13 @@
       .form-group
         label for="schoolCity" Ciudad
         .input-group
-          input#schoolCity.form-control type="text" placeholder="Nombre de la Ciudad" name="schoolCity" value=schoolCity
+          = input#schoolCity.form-control type="text" placeholder="Nombre de la Ciudad" name="schoolCity" valueBinding="schoolCity"
           span.input-group-addon.danger
             i.fa.fa-times
       .form-group
         label for="schoolState" Estado
         .input-group
-          select#schoolState.form-control name="schoolState" placeholder="Seleccionar Estado"
+          select#schoolState.form-control name="schoolState" placeholder="Seleccionar Estado" valueBinding="schoolCity"
             option -- Seleccionar --
             option value="DF"
               | Distrito Federal
