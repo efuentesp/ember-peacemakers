@@ -5,21 +5,20 @@ schoolsController = Ember.ArrayController.extend
   itemController: "school"
 
   sortProperties: ['createdAt']
-  sortAscending: true
+  sortAscending: false
 
-  schoolName: ""
-  schoolType:
-    id: ''
+  newSchool: Ember.Object.create
+    name: ''
+    type: ''
+    city: ''
+    state: ''
+
   schoolTypes: [
-    { id: '', name: '-- Seleccionar --' }
     { id: 'PUBLIC', name: 'Pública' }
     { id: 'PRIVATE', name: 'Privada' }
   ]
 
-  schoolState:
-    id: ''
   schoolStates: [
-    { id: '', name: '-- Seleccionar --' }
     { id: 'MX-DIF', name: 'Distrito Federal' }
     { id: 'MX-AGU', name: 'Aguascalientes' }
   ]
@@ -53,20 +52,24 @@ schoolsController = Ember.ArrayController.extend
 
     # Row Actions
     submit: ->
-      console.log @schoolStates
-      console.log @schoolState.id
-      schoolStateSelected = _.find @schoolStates, { 'id': @schoolState.id }
-      console.log schoolStateSelected.name
-      school = @get('store').createRecord 'school',
-        name: @schoolName
-        type: @schoolType.id
-        city: @schoolCity
-        state: @schoolState.id
-        createdAt: new Date()
-      @set('schoolName', '')
-      @set('schoolCity', '')
-      @set('schoolType', '')
-      @set('schoolState', '')
+      console.log @newSchool.type
+      # schoolStateSelected = _.find @newSchool.state, { 'id': @schoolState.id }
+      school = @store.createRecord 'school',
+        name: @newSchool.name
+        # type: @newSchool.type
+        city: @newSchool.city
+        # state: @newSchool.state
+        # createdAt: new Date()
+      @store.find('school-type', @newSchool.type).then (schoolType) ->
+        console.log "schoolType: " + schoolType.name
+        school.set 'type', schoolType
+      @store.find('state', @newSchool.state).then (schoolState) ->
+        console.log "schoolState: " + schoolState.name
+        school.set 'state', schoolState
+      @set('newSchool.name', '')
+      @set('newSchool.type', '')
+      @set('newSchool.city', '')
+      @set('newSchool.state', '')
       promise = school.save()
       Bootstrap.ModalManager.hide 'schoolModal', (error) ->
         school.rollback()

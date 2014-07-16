@@ -1,0 +1,14 @@
+.container
+  .page-err
+    .err-container-center.text-center
+      .err
+        .err-inner
+          h1 404
+          h2 Not found
+      .err-mss
+        p.text-muted Lo sentimos, la página que esta buscando no existe.
+      .err-body
+        link-to "application" class="btn btn-info btn-lg"
+          i.fa.fa-home
+          span.space
+            |  Regresar al menú principal

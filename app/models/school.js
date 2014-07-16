@@ -5,7 +5,11 @@ var School;
 School = DS.Model.extend({
   name: DS.attr('string'),
   city: DS.attr('string'),
-  createdAt: DS.attr('date'),
+  createdAt: DS.attr('date', {
+    defaultValue: function() {
+      return new Date();
+    }
+  }),
   type: DS.belongsTo('school-type'),
   state: DS.belongsTo('state'),
   classrooms: DS.hasMany('classroom', {
@@ -21,7 +25,6 @@ School.reopenClass({
       type: 'PUBLIC',
       city: 'Iztapalapa',
       state: 'MX-DIF',
-      createdAt: new Date(),
       classrooms: [1, 2]
     }, {
       id: 2,
@@ -29,22 +32,19 @@ School.reopenClass({
       type: 'PRIVATE',
       city: 'Cuernavaca',
       state: 'MX-MOR',
-      createdAt: new Date(),
       classrooms: [3]
     }, {
       id: 3,
       name: 'Colegio de los Menonitas',
       type: 'PRIVATE',
       city: 'Toluca',
-      state: 'MX-MEX',
-      createdAt: new Date()
+      state: 'MX-MEX'
     }, {
       id: 4,
       name: 'Vito Alessio Robles',
       type: 'PRIVATE',
       city: 'Coyoacán',
-      state: 'MX-DIF',
-      createdAt: new Date()
+      state: 'MX-DIF'
     }
   ]
 });

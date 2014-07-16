@@ -18,6 +18,8 @@ Router.map ->
   @route 'sociometricTestAssigned'
   @route 'surveyAssigned'
 
+  @route '404', { path: '/*path' }
+
   #@route 'component-test'
   #@route 'helper-test'
 

@@ -27,7 +27,10 @@ Router.map(function() {
     path: '/student/:student_id'
   });
   this.route('sociometricTestAssigned');
-  return this.route('surveyAssigned');
+  this.route('surveyAssigned');
+  return this.route('404', {
+    path: '/*path'
+  });
 });
 
 export default Router;

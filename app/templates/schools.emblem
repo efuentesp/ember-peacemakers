@@ -62,6 +62,7 @@
                 | ,  
                 = state.name
                 h5.text-muted = type.name
+                = createdAt
               td
                 link-to "classrooms" this class="btn btn-success"
                   i.fa.fa-book
@@ -83,24 +84,24 @@
       .form-group
         label for="schoolName" Nombre
         .input-group
-          = input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" valueBinding="schoolName"
+          = input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" valueBinding="newSchool.name"
           span.input-group-addon.danger
             i.fa.fa-times
       .form-group
         label for="schoolType" Tipo
         .input-group
-          Ember.Select content=schoolTypes optionValuePath="content.id" optionLabelPath="content.name" valueBinding="schoolType.id" id="schoolType" class="form-control"
+          Ember.Select content=schoolTypes optionValuePath="content.id" optionLabelPath="content.name" valueBinding="newSchool.type" id="schoolType" class="form-control" prompt="-- Seleccionar --"
           span.input-group-addon.danger
             i.fa.fa-times
       .form-group
         label for="schoolCity" Ciudad
         .input-group
-          = input#schoolCity.form-control type="text" placeholder="Nombre de la Ciudad" name="schoolCity" valueBinding="schoolCity"
+          = input#schoolCity.form-control type="text" placeholder="Nombre de la Ciudad" name="schoolCity" valueBinding="newSchool.city"
           span.input-group-addon.danger
             i.fa.fa-times
       .form-group
         label for="schoolState" Estado
         .input-group
-          Ember.Select content=schoolStates optionValuePath="content.id" optionLabelPath="content.name" valueBinding="schoolState.id" id="schoolState" class="form-control"
+          Ember.Select content=schoolStates optionValuePath="content.id" optionLabelPath="content.name" valueBinding="newSchool.state" id="schoolState" class="form-control" prompt="-- Seleccionar --"
           span.input-group-addon.danger
             i.fa.fa-times

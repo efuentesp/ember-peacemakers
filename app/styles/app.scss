@@ -312,3 +312,78 @@ fieldset[disabled] .btn-dark:hover {
   font-weight: 800;
   padding: 3px 10px 2px;
 }
+
+/* 404 NOT FOUND PAGE */
+.page-err {
+  position:relative;
+  width:100%;
+  height:100%
+}
+.page-err .err-container {
+  padding:45px 10px 0
+}
+@media (min-width:768px) {
+  .page-err .err-container {
+    padding:100px 0 0
+  }
+}
+.page-err .err {
+  margin:auto;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  border:2px solid #248aaf;
+  padding:28px
+}
+.page-err .err .err-inner {
+  width:240px;
+  height:240px;
+  padding:30px 0;
+  border-radius:50%;
+  background-color:#248aaf;
+  color:#fafafa
+}
+.page-err .err h1 {
+  margin:0;
+  color:#fafafa;
+  font-size:100px;
+  line-height:120px
+}
+.page-err .err h2 {
+  margin:0;
+  font-weight:300;
+  font-size:28px
+}
+.page-err .err-mss {
+  margin:50px 0 20px;
+  font-size:22px;
+  font-weight:700
+}
+.page-err .err-body {
+  padding:20px 10px
+}
+.page-err .btn-goback {
+  color:#fff;
+  background-color:transparent;
+  border-color:#fff
+}
+.open .page-err .btn-goback.btn-info.dropdown-toggle,
+.page-err .btn-goback.btn-info.active,
+.page-err .btn-goback.btn-info:active,
+.page-err .btn-goback.btn-info:focus,
+.page-err .btn-goback.btn-info:hover {
+  color:#3cbfd9
+}
+.open .page-err .btn-goback.dropdown-toggle,
+.page-err .btn-goback.active,
+.page-err .btn-goback:active,
+.page-err .btn-goback:focus,
+.page-err .btn-goback:hover {
+  color:#289bc4;
+  background-color:#fff
+}
+.page-err .footer {
+  position:absolute;
+  bottom:20px;
+  width:100%
+}

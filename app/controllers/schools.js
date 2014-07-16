@@ -5,16 +5,15 @@ var schoolsController;
 schoolsController = Ember.ArrayController.extend({
   itemController: "school",
   sortProperties: ['createdAt'],
-  sortAscending: true,
-  schoolName: "",
-  schoolType: {
-    id: ''
-  },
+  sortAscending: false,
+  newSchool: Ember.Object.create({
+    name: '',
+    type: '',
+    city: '',
+    state: ''
+  }),
   schoolTypes: [
     {
-      id: '',
-      name: '-- Seleccionar --'
-    }, {
       id: 'PUBLIC',
       name: 'Pública'
     }, {
@@ -22,14 +21,8 @@ schoolsController = Ember.ArrayController.extend({
       name: 'Privada'
     }
   ],
-  schoolState: {
-    id: ''
-  },
   schoolStates: [
     {
-      id: '',
-      name: '-- Seleccionar --'
-    }, {
       id: 'MX-DIF',
       name: 'Distrito Federal'
     }, {
@@ -55,24 +48,24 @@ schoolsController = Ember.ArrayController.extend({
       return Bootstrap.ModalManager.show('schoolModal');
     },
     submit: function() {
-      var promise, school, schoolStateSelected;
-      console.log(this.schoolStates);
-      console.log(this.schoolState.id);
-      schoolStateSelected = _.find(this.schoolStates, {
-        'id': this.schoolState.id
+      var promise, school;
+      console.log(this.newSchool.type);
+      school = this.store.createRecord('school', {
+        name: this.newSchool.name,
+        city: this.newSchool.city
       });
-      console.log(schoolStateSelected.name);
-      school = this.get('store').createRecord('school', {
-        name: this.schoolName,
-        type: this.schoolType.id,
-        city: this.schoolCity,
-        state: this.schoolState.id,
-        createdAt: new Date()
+      this.store.find('school-type', this.newSchool.type).then(function(schoolType) {
+        console.log("schoolType: " + schoolType.name);
+        return school.set('type', schoolType);
       });
-      this.set('schoolName', '');
-      this.set('schoolCity', '');
-      this.set('schoolType', '');
-      this.set('schoolState', '');
+      this.store.find('state', this.newSchool.state).then(function(schoolState) {
+        console.log("schoolState: " + schoolState.name);
+        return school.set('state', schoolState);
+      });
+      this.set('newSchool.name', '');
+      this.set('newSchool.type', '');
+      this.set('newSchool.city', '');
+      this.set('newSchool.state', '');
       promise = school.save();
       return Bootstrap.ModalManager.hide('schoolModal', function(error) {
         school.rollback();
