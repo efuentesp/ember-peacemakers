@@ -12,24 +12,12 @@ schoolsController = Ember.ArrayController.extend({
     city: '',
     state: ''
   }),
-  schoolTypes: [
-    {
-      id: 'PUBLIC',
-      name: 'Pública'
-    }, {
-      id: 'PRIVATE',
-      name: 'Privada'
-    }
-  ],
-  schoolStates: [
-    {
-      id: 'MX-DIF',
-      name: 'Distrito Federal'
-    }, {
-      id: 'MX-AGU',
-      name: 'Aguascalientes'
-    }
-  ],
+  schoolTypes: (function() {
+    return this.store.find("school-type");
+  }).property(),
+  schoolStates: (function() {
+    return this.store.find("state");
+  }).property(),
   modalButtons: [
     Ember.Object.create({
       title: 'Cancelar',

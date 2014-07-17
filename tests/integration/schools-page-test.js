@@ -8,9 +8,33 @@ server = null;
 
 module('Integration Test - Schools page', {
   setup: function() {
-    var schools;
+    var schoolStates, schoolTypes, schools;
     console.log("setup");
     App = startApp();
+    schoolTypes = [
+      {
+        id: 'PUBLIC',
+        name: 'Pública'
+      }, {
+        id: 'PRIVATE',
+        name: 'Privada'
+      }
+    ];
+    schoolStates = [
+      {
+        id: 'MX-DIF',
+        name: 'Distrito Federal'
+      }, {
+        id: 'MX-AGU',
+        name: 'Aguascalientes'
+      }, {
+        id: 'MX-MEX',
+        name: 'Estado de México'
+      }, {
+        id: 'MX-MOR',
+        name: 'Morelos'
+      }
+    ];
     schools = [
       {
         id: 1,
@@ -43,6 +67,50 @@ module('Integration Test - Schools page', {
       }
     ];
     return server = new Pretender(function() {
+      this.get('/api/school-types', function(request) {
+        return [
+          200, {
+            'Content-Type': 'application/json'
+          }, JSON.stringify({
+            schoolTypes: school-types
+          })
+        ];
+      });
+      this.get('/api/school-types/:id', function(request) {
+        var schoolType;
+        schoolType = school - types.find(function(type) {
+          return type;
+        });
+        return [
+          200, {
+            'Content-Type': 'application/json'
+          }, JSON.stringify({
+            schoolType: school-type
+          })
+        ];
+      });
+      this.get('/api/states', function(request) {
+        return [
+          200, {
+            'Content-Type': 'application/json'
+          }, JSON.stringify({
+            states: schoolStates
+          })
+        ];
+      });
+      this.get('/api/states/:id', function(request) {
+        var schoolState;
+        schoolState = sctates.find(function(state) {
+          return state;
+        });
+        return [
+          200, {
+            'Content-Type': 'application/json'
+          }, JSON.stringify({
+            state: schoolState
+          })
+        ];
+      });
       this.get('/api/schools', function(request) {
         return [
           200, {
@@ -103,10 +171,13 @@ test('Should show Add New School form when Add button is pressed.', function() {
 test('Should add a new School.', function() {
   return visit('/schools').then(function() {
     return click('#btn_addSchool').then(function() {
+      equal(find("select#schoolType option[value='PRIVATE']").length, 1, "No SchoolTypes loaded in ListBox.");
+      equal(find("select#schoolState option[value='MX-DIF']").length, 1, "No SchoolState loaded in ListBox.");
       fillIn('#schoolName', '#form_school', 'School 5');
       $('input#schoolCity').val('City 5');
       $("select#schoolType option[value='PRIVATE']").attr('selected', true);
-      $("select#schoolState option[value='DF']").attr('selected', true);
+      $("select#schoolState option[value='MX-DIF']").attr('selected', true);
+      debugger;
       return click("button:contains('Guardar')").then(function() {
         return equal(find("td:contains('School 5')").length, 1, "New School not found!");
       });

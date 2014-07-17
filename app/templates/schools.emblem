@@ -54,9 +54,8 @@
             tr
               td
                 b = name 
-                if isNew
-                  h6
-                    bs-label content="Nueva" type="info"
+                h6
+                  bs-label content="Nueva" type="info"
               td
                 = city
                 | ,  
