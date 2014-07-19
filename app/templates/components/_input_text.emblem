@@ -1,0 +1,6 @@
+h2 Input Text
+label.control-label {{bind-attr for="view.inputField.elementId"}}
+  = view.label
+input typeBinding="view.type" class="form-control" placeholderBinding="view.placeholder" valueBinding="view.value" viewName="inputField"
+span.help-block
+  = view.message

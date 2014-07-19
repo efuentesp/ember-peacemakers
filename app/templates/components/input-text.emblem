@@ -1,0 +1,8 @@
+label for=view.inputField.elementId
+  = view.label
+.input-group
+  = input typeBinding="view.type" class="form-control" placeholderBinding="view.placeholder" valueBinding="view.value" viewName="inputField"
+  span.input-group-addon class=isValid:success:danger
+    i.fa class=isValid:fa-check:fa-times
+//- span.help-block
+//-   = view.message

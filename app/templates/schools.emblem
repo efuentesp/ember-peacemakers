@@ -80,24 +80,26 @@
 
   bs-modal name="schoolModal" fade=true footerButtonsBinding="modalButtons" title="Agregar Escuela"
     form#form_school role="form"
-      .form-group
-        label for="schoolName" Nombre
-        .input-group
-          = input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" valueBinding="newSchool.name"
-          span.input-group-addon.danger
-            i.fa.fa-times
+      input-text id="schoolNamex" label="Nombre" placeholder="Nombre de la Escuela" value=controller.name formController=controller required=true autofocus=true
+      //- .form-group
+      //-   label for="schoolName" Nombre
+      //-   .input-group
+      //-     = input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" valueBinding="newSchool.name"
+      //-     span.input-group-addon.danger
+      //-       i.fa.fa-times
       .form-group
         label for="schoolType" Tipo
         .input-group
           Ember.Select content=schoolTypes optionValuePath="content.id" optionLabelPath="content.name" valueBinding="newSchool.type" id="schoolType" class="form-control" prompt="-- Seleccionar --"
           span.input-group-addon.danger
             i.fa.fa-times
-      .form-group
-        label for="schoolCity" Ciudad
-        .input-group
-          = input#schoolCity.form-control type="text" placeholder="Nombre de la Ciudad" name="schoolCity" valueBinding="newSchool.city"
-          span.input-group-addon.danger
-            i.fa.fa-times
+      input-text id="schoolCityx" label="Ciudad" placeholder="Nombre de la Ciudad" value=controller.city formController=controller required=true
+      //- .form-group
+      //-   label for="schoolCity" Ciudad
+      //-   .input-group
+      //-     = input#schoolCity.form-control type="text" placeholder="Nombre de la Ciudad" name="schoolCity" valueBinding="newSchool.city"
+      //-     span.input-group-addon.danger
+      //-       i.fa.fa-times
       .form-group
         label for="schoolState" Estado
         .input-group

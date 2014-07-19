@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import FormController from '../mixins/form-controller'`
 
-schoolsController = Ember.ArrayController.extend
+schoolsController = Ember.ArrayController.extend FormController,
 
   itemController: "school"
 
@@ -50,27 +51,31 @@ schoolsController = Ember.ArrayController.extend
 
     # Row Actions
     submit: ->
-      schoolType = @newSchool.type
-      schoolState = @newSchool.state
-      # schoolStateSelected = _.find @newSchool.state, { 'id': @schoolState.id }
-      school = @store.createRecord 'school',
-        name: @newSchool.name
-        city: @newSchool.city
-      school.save().then =>
-        @store.find('school-type', schoolType).then (type) ->
-          school.set 'type', type
-        @store.find('state', schoolState).then (state) ->
-          school.set 'state', state
+      isFormValid = @.get('isFormValid')
+      if isFormValid
+        schoolType = @newSchool.type
+        schoolState = @newSchool.state
+        school = @store.createRecord 'school',
+          name: @newSchool.name
+          city: @newSchool.city
+        school.save().then =>
+          @store.find('school-type', schoolType).then (type) ->
+            school.set 'type', type
+          @store.find('state', schoolState).then (state) ->
+            school.set 'state', state
+        @set('newSchool.name', '')
+        @set('newSchool.type', '')
+        @set('newSchool.city', '')
+        @set('newSchool.state', '')
+        Bootstrap.ModalManager.hide 'schoolModal', (error) ->
+          school.rollback()
+          alert error
+
+    cancel: ->
+      console.log "Cancel!!"
       @set('newSchool.name', '')
       @set('newSchool.type', '')
       @set('newSchool.city', '')
       @set('newSchool.state', '')
-      Bootstrap.ModalManager.hide 'schoolModal', (error) ->
-        school.rollback()
-        alert error
-
-    cancel: ->
-      console.log "Cancel!!"
-
 
 `export default schoolsController`
