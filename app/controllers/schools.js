@@ -36,25 +36,26 @@ schoolsController = Ember.ArrayController.extend({
       return Bootstrap.ModalManager.show('schoolModal');
     },
     submit: function() {
-      var promise, school;
-      console.log(this.newSchool.type);
+      var school, schoolState, schoolType,
+        _this = this;
+      schoolType = this.newSchool.type;
+      schoolState = this.newSchool.state;
       school = this.store.createRecord('school', {
         name: this.newSchool.name,
         city: this.newSchool.city
       });
-      this.store.find('school-type', this.newSchool.type).then(function(schoolType) {
-        console.log("schoolType: " + schoolType.name);
-        return school.set('type', schoolType);
-      });
-      this.store.find('state', this.newSchool.state).then(function(schoolState) {
-        console.log("schoolState: " + schoolState.name);
-        return school.set('state', schoolState);
+      school.save().then(function() {
+        _this.store.find('school-type', schoolType).then(function(type) {
+          return school.set('type', type);
+        });
+        return _this.store.find('state', schoolState).then(function(state) {
+          return school.set('state', state);
+        });
       });
       this.set('newSchool.name', '');
       this.set('newSchool.type', '');
       this.set('newSchool.city', '');
       this.set('newSchool.state', '');
-      promise = school.save();
       return Bootstrap.ModalManager.hide('schoolModal', function(error) {
         school.rollback();
         return alert(error);

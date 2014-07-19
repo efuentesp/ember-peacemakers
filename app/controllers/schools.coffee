@@ -50,25 +50,21 @@ schoolsController = Ember.ArrayController.extend
 
     # Row Actions
     submit: ->
-      console.log @newSchool.type
+      schoolType = @newSchool.type
+      schoolState = @newSchool.state
       # schoolStateSelected = _.find @newSchool.state, { 'id': @schoolState.id }
       school = @store.createRecord 'school',
         name: @newSchool.name
-        # type: @newSchool.type
         city: @newSchool.city
-        # state: @newSchool.state
-        # createdAt: new Date()
-      @store.find('school-type', @newSchool.type).then (schoolType) ->
-        console.log "schoolType: " + schoolType.name
-        school.set 'type', schoolType
-      @store.find('state', @newSchool.state).then (schoolState) ->
-        console.log "schoolState: " + schoolState.name
-        school.set 'state', schoolState
+      school.save().then =>
+        @store.find('school-type', schoolType).then (type) ->
+          school.set 'type', type
+        @store.find('state', schoolState).then (state) ->
+          school.set 'state', state
       @set('newSchool.name', '')
       @set('newSchool.type', '')
       @set('newSchool.city', '')
       @set('newSchool.state', '')
-      promise = school.save()
       Bootstrap.ModalManager.hide 'schoolModal', (error) ->
         school.rollback()
         alert error

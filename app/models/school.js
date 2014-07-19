@@ -42,7 +42,7 @@ School.reopenClass({
     }, {
       id: 4,
       name: 'Vito Alessio Robles',
-      type: 'PRIVATE',
+      type: 'PUBLIC',
       city: 'Coyoacán',
       state: 'MX-DIF'
     }

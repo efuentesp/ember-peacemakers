@@ -17,7 +17,7 @@ School.reopenClass
       { id: 1, name: 'Esc. Sec. Diurna No.79 República de Chile', type: 'PUBLIC',  city: 'Iztapalapa', state: 'MX-DIF', classrooms: [1, 2] }
       { id: 2, name: 'Instituto Cumbres México', type: 'PRIVATE', city: 'Cuernavaca', state: 'MX-MOR', classrooms: [3] }
       { id: 3, name: 'Colegio de los Menonitas', type: 'PRIVATE', city: 'Toluca', state: 'MX-MEX' }
-      { id: 4, name: 'Vito Alessio Robles', type: 'PRIVATE',  city: 'Coyoacán', state: 'MX-DIF' }
+      { id: 4, name: 'Vito Alessio Robles', type: 'PUBLIC',  city: 'Coyoacán', state: 'MX-DIF' }
     ]
 
 `export default School`
