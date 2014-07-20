@@ -41,51 +41,54 @@ module('Integration Test - Schools page', {
         name: 'School 1',
         type: 'PUBLIC',
         city: 'City 1',
-        state: 'State 1',
+        state: 'MX-DIF',
         createdAt: new Date()
       }, {
         id: 2,
         name: 'School 2',
         type: 'PRIVATE',
         city: 'City 2',
-        state: 'State 2',
+        state: 'MX-MOR',
         createdAt: new Date()
       }, {
         id: 3,
         name: 'School 3',
         type: 'PRIVATE',
         city: 'City 3',
-        state: 'State 3',
+        state: 'MX-DIF',
         createdAt: new Date()
       }, {
         id: 4,
         name: 'School 4',
         type: 'PUBLIC',
         city: 'City 4',
-        state: 'State 4',
+        state: 'MX-MEX',
         createdAt: new Date()
       }
     ];
-    return server = new Pretender(function() {
-      this.get('/api/school-types', function(request) {
+    server = new Pretender(function() {
+      this.get('/api/schoolTypes', function(request) {
         return [
           200, {
             'Content-Type': 'application/json'
           }, JSON.stringify({
-            schoolTypes: school-types
+            schoolTypes: schoolTypes
           })
         ];
       });
-      this.get('/api/school-types/:id', function(request) {
+      this.get('/api/schoolTypes/:id', function(request) {
         var schoolType;
         schoolType = school - types.find(function(type) {
           return type;
         });
+        console.log(JSON.stringify({
+          schoolType: schoolType
+        }));
         return [
           200, {
             'Content-Type': 'application/json'
           }, JSON.stringify({
-            schoolType: school-type
+            schoolType: schoolType
           })
         ];
       });
@@ -100,9 +103,12 @@ module('Integration Test - Schools page', {
       });
       this.get('/api/states/:id', function(request) {
         var schoolState;
-        schoolState = sctates.find(function(state) {
+        schoolState = states.find(function(state) {
           return state;
         });
+        console.log(JSON.stringify({
+          state: schoolState
+        }));
         return [
           200, {
             'Content-Type': 'application/json'
@@ -127,6 +133,9 @@ module('Integration Test - Schools page', {
             return school;
           }
         });
+        console.log(JSON.stringify({
+          school: school
+        }));
         return [
           200, {
             'Content-Type': 'application/json'
@@ -136,6 +145,11 @@ module('Integration Test - Schools page', {
         ];
       });
     });
+    return server.handledRequest = function(verb, path, request) {
+      console.log(verb);
+      console.log(path);
+      return console.log(request);
+    };
   },
   teardown: function() {
     Ember.run(App, 'destroy');
@@ -171,13 +185,12 @@ test('Should show Add New School form when Add button is pressed.', function() {
 test('Should add a new School.', function() {
   return visit('/schools').then(function() {
     return click('#btn_addSchool').then(function() {
-      equal(find("select#schoolType option[value='PRIVATE']").length, 1, "No SchoolTypes loaded in ListBox.");
-      equal(find("select#schoolState option[value='MX-DIF']").length, 1, "No SchoolState loaded in ListBox.");
-      fillIn('#schoolName', '#form_school', 'School 5');
-      $('input#schoolCity').val('City 5');
-      $("select#schoolType option[value='PRIVATE']").attr('selected', true);
-      $("select#schoolState option[value='MX-DIF']").attr('selected', true);
-      debugger;
+      equal(find("#schoolType option[value='PRIVATE']").length, 1, "No SchoolTypes loaded in ListBox.");
+      equal(find("#schoolState option[value='MX-DIF']").length, 1, "No SchoolState loaded in ListBox.");
+      fillIn('#schoolName input', '#form_school', 'School 5');
+      fillIn('#schoolCity input', '#form_school', 'City 5');
+      fillIn('#schoolType select', '#form_school', 'PRIVATE');
+      fillIn('#schoolState select', '#form_school', 'MX-DIF');
       return click("button:contains('Guardar')").then(function() {
         return equal(find("td:contains('School 5')").length, 1, "New School not found!");
       });
