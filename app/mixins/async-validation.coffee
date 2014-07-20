@@ -59,7 +59,7 @@ AsyncValidation = Ember.Mixin.create
         self.set('isValid', isValid)
   ).observes('value')
  
-  # base validation function, if we get @ far then the field is valid
+  # base validation function, if we get this far then the field is valid
   validate: (value, status) ->
     status(true, '')
 

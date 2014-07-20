@@ -80,29 +80,31 @@
 
   bs-modal name="schoolModal" fade=true footerButtonsBinding="modalButtons" title="Agregar Escuela"
     form#form_school role="form"
-      input-text id="schoolNamex" label="Nombre" placeholder="Nombre de la Escuela" value=controller.name formController=controller required=true autofocus=true
+      input-text id="schoolName" label="Nombre" placeholder="Nombre de la Escuela" value=newSchool.name formController=controller required=true autofocus=true
       //- .form-group
       //-   label for="schoolName" Nombre
       //-   .input-group
       //-     = input#schoolName.form-control type="text" placeholder="Nombre de la Escuela" name="schoolName" valueBinding="newSchool.name"
       //-     span.input-group-addon.danger
       //-       i.fa.fa-times
-      .form-group
-        label for="schoolType" Tipo
-        .input-group
-          Ember.Select content=schoolTypes optionValuePath="content.id" optionLabelPath="content.name" valueBinding="newSchool.type" id="schoolType" class="form-control" prompt="-- Seleccionar --"
-          span.input-group-addon.danger
-            i.fa.fa-times
-      input-text id="schoolCityx" label="Ciudad" placeholder="Nombre de la Ciudad" value=controller.city formController=controller required=true
+      select-list id="schoolType" content=schoolTypes optionValuePath="content.id" optionLabelPath="content.name" value=newSchool.type formController=controller label="Tipo" prompt="-- Seleccionar --" required=true
+      //- .form-group
+      //-   label for="schoolType" Tipo
+      //-   .input-group
+      //-     Ember.Select content=schoolTypes optionValuePath="content.id" optionLabelPath="content.name" valueBinding="newSchool.type" id="schoolType" class="form-control" prompt="-- Seleccionar --"
+      //-     span.input-group-addon.danger
+      //-       i.fa.fa-times
+      input-text id="schoolCity" label="Ciudad" placeholder="Nombre de la Ciudad" value=newSchool.city formController=controller required=true
       //- .form-group
       //-   label for="schoolCity" Ciudad
       //-   .input-group
       //-     = input#schoolCity.form-control type="text" placeholder="Nombre de la Ciudad" name="schoolCity" valueBinding="newSchool.city"
       //-     span.input-group-addon.danger
       //-       i.fa.fa-times
-      .form-group
-        label for="schoolState" Estado
-        .input-group
-          Ember.Select content=schoolStates optionValuePath="content.id" optionLabelPath="content.name" valueBinding="newSchool.state" id="schoolState" class="form-control" prompt="-- Seleccionar --"
-          span.input-group-addon.danger
-            i.fa.fa-times
+      select-list id="schoolState" content=schoolStates optionValuePath="content.id" optionLabelPath="content.name" value=newSchool.state formController=controller label="State" prompt="-- Seleccionar --" required=true
+      //- .form-group
+      //-   label for="schoolState" Estado
+      //-   .input-group
+      //-     Ember.Select content=schoolStates optionValuePath="content.id" optionLabelPath="content.name" valueBinding="newSchool.state" id="schoolState" class="form-control" prompt="-- Seleccionar --"
+      //-     span.input-group-addon.danger
+      //-       i.fa.fa-times
