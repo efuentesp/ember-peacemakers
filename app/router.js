@@ -8,10 +8,9 @@ Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
-  this.resource('schools', function() {
-    return this.route('show', {
-      path: ':school_id'
-    });
+  this.resource('schools');
+  this.resource('school', function() {
+    return this.route('new');
   });
   this.resource('classrooms', {
     path: '/schools/:school_id/classrooms'

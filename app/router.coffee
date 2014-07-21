@@ -5,8 +5,9 @@ Router = Ember.Router.extend
 
 Router.map ->
   @route 'login'
-  @resource 'schools', ->
-    @route 'show', { path: ':school_id' }
+  @resource 'schools'
+  @resource 'school', ->
+    @route 'new'
   @resource 'classrooms', { path: '/schools/:school_id/classrooms' }
   @resource 'classmates', { path: '/schools/:school_id/classrooms/:classroom_id' }
   @route 'setup'

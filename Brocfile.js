@@ -61,8 +61,8 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
   'bs-button.min.js',
   'bs-basic.min.js',
   'bs-popover.min.js',
-  'bs-progressbar.min.js',
-  'bs-label.min.js'
+  'bs-progressbar.min.js'
+  // 'bs-nav.min.js'
 ].forEach(function(path) {
   var fullPath = 'vendor/ember-addons.bs_for_ember/dist/js/' + path;
   app.import(fullPath);

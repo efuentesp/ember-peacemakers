@@ -1,0 +1,44 @@
+.container
+  .row
+    span.col-md-12
+      ol.breadcrumb
+        li
+          link-to "application"
+            i.fa.fa-home
+            |  Inicio
+        li
+          link-to "schools"
+            | Escuelas
+        li.active Agregar Escuela
+
+  .row
+    .col-md-12
+      h2#title
+        i.fa.fa-bell-o
+        |  Agregar Escuela
+      hr
+      br
+  .row
+    .col-md-6
+      form#form_school role="form"
+        input-text id="schoolName" label="Nombre" placeholder="Nombre de la Escuela" value=newSchool.name formController=controller required=true autofocus=true
+        select-list id="schoolType" content=schoolTypes optionValuePath="content.id" optionLabelPath="content.name" value=newSchool.type formController=controller label="Tipo" prompt="-- Seleccionar --" required=true
+        .row
+          .col-md-6
+            input-text id="schoolCity" label="Ciudad" placeholder="Nombre de la Ciudad" value=newSchool.city formController=controller required=true
+          .col-md-6
+            select-list id="schoolState" content=schoolStates optionValuePath="content.id" optionLabelPath="content.name" value=newSchool.state formController=controller label="Estado" prompt="-- Seleccionar --" required=true
+    .col-md-6
+      | Administradores
+  .row
+    .col-md-12
+      br
+      hr
+      .pull-right
+          span
+              bs-button title="Regresar" clicked="cancel"
+              |  
+              if isFormValid
+                bs-button icon="fa fa-save" title="Guardar" type="primary" clicked="submit"
+              else
+                bs-button icon="fa fa-save" title="Guardar" type="primary" clicked="submit" disabled=true
