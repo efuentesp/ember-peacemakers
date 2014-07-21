@@ -48,7 +48,7 @@
       table#school-table.table.table-hover
         thead
           tr
-            th.col-md-5
+            th.col-md-6
             th.col-md-4
             th
             th
@@ -69,10 +69,6 @@
                 link-to "classrooms" this class="btn btn-success"
                   i.fa.fa-book
                   |  Aulas
-                |  
-                link-to "classrooms" this class="btn btn-info"
-                  i.fa.fa-user
-                  |  Admin
               td
                 bs-button type="primary" clicked="editSchool"
                   i.fa.fa-pencil

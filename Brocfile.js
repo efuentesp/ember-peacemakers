@@ -88,6 +88,9 @@ app.import('vendor/moment/moment.js');
 
 app.import('vendor/lodash/dist/lodash.min.js');
 
+app.import('vendor/typeahead.js/dist/typeahead.min.js');
+app.import('vendor/ember-typeahead/dist/ember-typeahead.min.js')
+
 //module.exports = app.toTree();
 module.exports = mergeTrees([
   app.toTree(),

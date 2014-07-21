@@ -8,8 +8,33 @@ SchoolItemController = Ember.ObjectController.extend(FormController, {
     name: '',
     type: '',
     city: '',
-    state: ''
+    state: '',
+    adminuser: '',
+    adminpassword: '',
+    assisstantuser: '',
+    assisstantpassword: ''
   }),
+  typeaheadcontent: [
+    Ember.Object.create({
+      colour: "Red"
+    }), Ember.Object.create({
+      colour: "Green"
+    }), Ember.Object.create({
+      colour: "Blue"
+    }), Ember.Object.create({
+      colour: "Blue 1"
+    }), Ember.Object.create({
+      colour: "Blue 2"
+    }), Ember.Object.create({
+      colour: "Blue 3"
+    }), Ember.Object.create({
+      colour: "Blue 4"
+    }), Ember.Object.create({
+      colour: "Blue 5"
+    }), Ember.Object.create({
+      colour: "Blue 6"
+    })
+  ],
   schoolTypes: (function() {
     return this.store.find("school-type");
   }).property(),
@@ -26,7 +51,6 @@ SchoolItemController = Ember.ObjectController.extend(FormController, {
       console.log(this.newSchool.city);
       console.log(this.newSchool.state);
       isFormValid = this.get('isFormValid');
-      console.log(isFormValid);
       if (isFormValid) {
         schoolType = this.newSchool.type;
         schoolState = this.newSchool.state;

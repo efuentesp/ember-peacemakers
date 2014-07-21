@@ -29,7 +29,19 @@
           .col-md-6
             select-list id="schoolState" content=schoolStates optionValuePath="content.id" optionLabelPath="content.name" value=newSchool.state formController=controller label="Estado" prompt="-- Seleccionar --" required=true
     .col-md-6
-      | Administradores
+      .row
+        .col-md-6
+          input-text id="schoolAdminUsr" label="Administrador" placeholder="Usuario Admin" value=newSchool.adminuser formController=controller required=true
+        .col-md-6
+          input-text id="schoolAdminPwd" label="." placeholder="Contraseña Admin" value=newSchool.adminpassword formController=controller required=true
+      .row
+        .col-md-6
+          input-text id="schoolAssisstUsr" label="Asistente" placeholder="Usuario Asistente" value=newSchool.assisstantuser formController=controller required=true
+        .col-md-6
+          input-text id="schoolAssistPwd" label="." placeholder="Contraseña Asistente" value=newSchool.assisstantpassword formController=controller required=true
+      .row
+        type-ahead data=typeaheadcontent name="colour" selection=myColour class="form-control"
+
   .row
     .col-md-12
       br

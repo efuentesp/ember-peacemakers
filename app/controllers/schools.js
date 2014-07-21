@@ -11,7 +11,7 @@ schoolsController = Ember.ArrayController.extend({
     isNew = false;
     console.log(this.createdAt);
     console.log(moment(this.createdAt).startOf('day').fromNow());
-    if (!(moment(this.createdAt).startOf('hour').fromNow() > 1)) {
+    if (moment(this.createdAt).startOf('hour').fromNow() > 1) {
       isNew = true;
     }
     return isNew;
