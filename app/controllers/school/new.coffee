@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
-`import FormController from '../../mixins/form-controller'`
 
-SchoolItemController = Ember.ObjectController.extend FormController,
+SchoolItemController = Ember.ObjectController.extend
 
   newSchool: Ember.Object.create
     name: ''
@@ -36,35 +35,25 @@ SchoolItemController = Ember.ObjectController.extend FormController,
   actions:
     submit: ->
       console.log "Sumbit!!"
+      console.log @get('name')
       console.log @newSchool.name
       console.log @newSchool.type
       console.log @newSchool.city
       console.log @newSchool.state
-      isFormValid = @.get('isFormValid')
-      if isFormValid
-        schoolType = @newSchool.type
-        schoolState = @newSchool.state
-        school = @store.createRecord 'school',
-          name: @newSchool.name
-          city: @newSchool.city
-        school.save().then =>
-          @store.find('school-type', schoolType).then (type) ->
-            school.set 'type', type
-          @store.find('state', schoolState).then (state) ->
-            school.set 'state', state
-        console.log school
-        # @set('newSchool.name', '')
-        # @set('newSchool.type', '')
-        # @set('newSchool.city', '')
-        # @set('newSchool.state', '')
-        @.transitionToRoute "schools"
+      schoolType = @newSchool.type
+      schoolState = @newSchool.state
+      school = @store.createRecord 'school',
+        name: @newSchool.name
+        city: @newSchool.city
+      school.save().then =>
+        @store.find('school-type', schoolType).then (type) ->
+          school.set 'type', type
+        @store.find('state', schoolState).then (state) ->
+          school.set 'state', state
+      @.transitionToRoute "schools"
 
     cancel: ->
       console.log "Cancel!!"
-      # @set('newSchool.name', '')
-      # @set('newSchool.type', '')
-      # @set('newSchool.city', '')
-      # @set('newSchool.state', '')
       @.transitionToRoute "schools"
 
 `export default SchoolItemController`

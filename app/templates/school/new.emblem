@@ -20,28 +20,19 @@
       br
   .row
     .col-md-6
-      form#form_school role="form"
-        input-text id="schoolName" label="Nombre" placeholder="Nombre de la Escuela" value=newSchool.name formController=controller required=true autofocus=true
-        select-list id="schoolType" content=schoolTypes optionValuePath="content.id" optionLabelPath="content.name" value=newSchool.type formController=controller label="Tipo" prompt="-- Seleccionar --" required=true
-        .row
-          .col-md-6
-            input-text id="schoolCity" label="Ciudad" placeholder="Nombre de la Ciudad" value=newSchool.city formController=controller required=true
-          .col-md-6
-            select-list id="schoolState" content=schoolStates optionValuePath="content.id" optionLabelPath="content.name" value=newSchool.state formController=controller label="Estado" prompt="-- Seleccionar --" required=true
-    .col-md-6
-      .row
-        .col-md-6
-          input-text id="schoolAdminUsr" label="Administrador" placeholder="Usuario Admin" value=newSchool.adminuser formController=controller required=true
-        .col-md-6
-          input-text id="schoolAdminPwd" label="." placeholder="Contraseña Admin" value=newSchool.adminpassword formController=controller required=true
-      .row
-        .col-md-6
-          input-text id="schoolAssisstUsr" label="Asistente" placeholder="Usuario Asistente" value=newSchool.assisstantuser formController=controller required=true
-        .col-md-6
-          input-text id="schoolAssistPwd" label="." placeholder="Contraseña Asistente" value=newSchool.assisstantpassword formController=controller required=true
-      .row
-        type-ahead data=typeaheadcontent name="colour" selection=myColour class="form-control"
-
+      form-for controller id='form-school'
+        = input newSchool.name
+          = label-field newSchool.name text='Nombre' placeholder='Nombre de la Escuela'
+          = input-field newSchool.name class='form-control' autofocus='true'
+        = input newSchool.type
+          = label-field newSchool.type text='Tipo'
+          = input-field as='select' class='form-control' collection='schoolTypes' selection='type' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
+        = input newSchool.city
+          = label-field newSchool.city text='Ciudad' placeholder='Ciudad de la Escuela'
+          = input-field newSchool.city class='form-control'
+        = input newSchool.state
+          = label-field newSchool.state text='Estado'
+          = input-field as='select' class='form-control' collection='schoolStates' selection='type' label='Estado' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
   .row
     .col-md-12
       br

@@ -91,6 +91,8 @@ app.import('vendor/lodash/dist/lodash.min.js');
 app.import('vendor/typeahead.js/dist/typeahead.min.js');
 app.import('vendor/ember-typeahead/dist/ember-typeahead.min.js')
 
+app.import('vendor/ember-easyForm-shim/dist/ember-easyForm.js')
+
 //module.exports = app.toTree();
 module.exports = mergeTrees([
   app.toTree(),

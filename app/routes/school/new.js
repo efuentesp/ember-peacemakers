@@ -6,7 +6,6 @@ schoolNewRoute = Ember.Route.extend({
   setupController: function(controller, model) {
     var newSchool;
     this._super(controller, model);
-    controller.set('validationFields', []);
     newSchool = controller.get('newSchool');
     newSchool.set("name");
     newSchool.set("type");

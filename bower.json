@@ -20,6 +20,7 @@
     "moment": "~2.7.0",
     "bootstrap-sass-official": "~3.2.0",
     "lodash": "~2.4.1",
-    "ember-typeahead": "~0.1.1"
+    "ember-typeahead": "~0.1.1",
+    "ember-easyForm-shim": "~1.0.0-beta.1"
   }
 }
