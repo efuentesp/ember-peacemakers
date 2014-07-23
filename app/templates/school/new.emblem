@@ -20,19 +20,21 @@
       br
   .row
     .col-md-6
-      form-for controller id='form-school'
+      form-for model id='form-school'
         = input newSchool.name
           = label-field newSchool.name text='Nombre' placeholder='Nombre de la Escuela'
           = input-field newSchool.name class='form-control' autofocus='true'
+          if view.showError
+            error-field newSchool.name
         = input newSchool.type
           = label-field newSchool.type text='Tipo'
-          = input-field as='select' class='form-control' collection='schoolTypes' selection='type' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
+          = input-field as='select' class='form-control' collection='controller.schoolTypes' selection='type' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
         = input newSchool.city
           = label-field newSchool.city text='Ciudad' placeholder='Ciudad de la Escuela'
           = input-field newSchool.city class='form-control'
         = input newSchool.state
           = label-field newSchool.state text='Estado'
-          = input-field as='select' class='form-control' collection='schoolStates' selection='type' label='Estado' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
+          = input-field as='select' class='form-control' collection='controller.schoolStates' selection='type' label='Estado' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
   .row
     .col-md-12
       br
@@ -41,7 +43,4 @@
           span
               bs-button title="Regresar" clicked="cancel"
               |  
-              if isFormValid
-                bs-button icon="fa fa-save" title="Guardar" type="primary" clicked="submit"
-              else
-                bs-button icon="fa fa-save" title="Guardar" type="primary" clicked="submit" disabled=true
+              bs-button icon="fa fa-save" title="Guardar" type="primary" clicked="submit"
