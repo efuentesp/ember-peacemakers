@@ -8,11 +8,13 @@ schoolsController = Ember.ArrayController.extend
   isNew: (->
     console.log "isNew()"
     isNew = false
-    console.log @createdAt
-    console.log moment(@createdAt).startOf('day').fromNow()
-    if moment(@createdAt).startOf('hour').fromNow() > 1
+    today = moment()
+    target = moment(@createdAt)
+    diff = today.diff(target, 'days')
+    console.log diff
+    if diff <= 1
       isNew = true
-    isNew
+    return isNew
   ).property('createdAt')
 
 `export default schoolsController`

@@ -25,26 +25,30 @@ School.reopenClass({
       type: 'PUBLIC',
       city: 'Iztapalapa',
       state: 'MX-DIF',
-      classrooms: [1, 2]
+      classrooms: [1, 2],
+      createdAt: moment().subtract('days', 7)
     }, {
       id: 2,
       name: 'Instituto Cumbres México',
       type: 'PRIVATE',
       city: 'Cuernavaca',
       state: 'MX-MOR',
-      classrooms: [3]
+      classrooms: [3],
+      createdAt: moment().subtract('days', 15)
     }, {
       id: 3,
       name: 'Colegio de los Menonitas',
       type: 'PRIVATE',
       city: 'Toluca',
-      state: 'MX-MEX'
+      state: 'MX-MEX',
+      createdAt: moment().subtract('days', 2)
     }, {
       id: 4,
       name: 'Vito Alessio Robles',
       type: 'PUBLIC',
       city: 'Coyoacán',
-      state: 'MX-DIF'
+      state: 'MX-DIF',
+      createdAt: moment().subtract('days', 100)
     }
   ]
 });

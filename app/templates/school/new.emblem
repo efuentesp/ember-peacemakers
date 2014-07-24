@@ -20,21 +20,21 @@
       br
   .row
     .col-md-6
-      form-for model id='form-school'
+      form-for controller.newSchool id='form-school'
         = input newSchool.name
-          = label-field newSchool.name text='Nombre' placeholder='Nombre de la Escuela'
-          = input-field newSchool.name class='form-control' autofocus='true'
+          = label-field name text='Nombre' placeholder='Nombre de la Escuela'
+          = input-field name class='form-control' autofocus='true'
           if view.showError
             error-field newSchool.name
-        = input newSchool.type
-          = label-field newSchool.type text='Tipo'
+        = input type
+          = label-field type text='Tipo'
           = input-field as='select' class='form-control' collection='controller.schoolTypes' selection='type' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
-        = input newSchool.city
-          = label-field newSchool.city text='Ciudad' placeholder='Ciudad de la Escuela'
-          = input-field newSchool.city class='form-control'
-        = input newSchool.state
-          = label-field newSchool.state text='Estado'
-          = input-field as='select' class='form-control' collection='controller.schoolStates' selection='type' label='Estado' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
+        = input city
+          = label-field city text='Ciudad' placeholder='Ciudad de la Escuela'
+          = input-field city class='form-control'
+        = input state
+          = label-field state text='Estado'
+          = input-field as='select' class='form-control' collection='controller.schoolStates' selection='state' label='Estado' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
   .row
     .col-md-12
       br
@@ -43,4 +43,7 @@
           span
               bs-button title="Regresar" clicked="cancel"
               |  
-              bs-button icon="fa fa-save" title="Guardar" type="primary" clicked="submit"
+              if controller.newSchool.isValid
+                bs-button icon="fa fa-save" title="Guardar" type="primary" clicked="submit"
+              else
+                bs-button icon="fa fa-save" title="Guardar" type="primary" clicked="submit" disabled=true

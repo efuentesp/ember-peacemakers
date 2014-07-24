@@ -85,13 +85,15 @@ app.import({development: 'vendor/FakeXMLHttpRequest/fake_xml_http_request.js'});
 app.import({development: 'vendor/pretender/pretender.js'});
 
 app.import('vendor/moment/moment.js');
+app.import('vendor/moment/lang/es.js');
 
 app.import('vendor/lodash/dist/lodash.min.js');
 
 app.import('vendor/typeahead.js/dist/typeahead.min.js');
 app.import('vendor/ember-typeahead/dist/ember-typeahead.min.js')
 
-app.import('vendor/ember-easyForm-shim/dist/ember-easyForm.js')
+app.import('vendor/ember-easyForm-shim/dist/ember-easyForm.min.js')
+app.import('vendor/ember-validations-shim/ember-validations.min.js')
 
 //module.exports = app.toTree();
 module.exports = mergeTrees([

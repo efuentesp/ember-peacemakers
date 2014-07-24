@@ -2,7 +2,7 @@
 
 SchoolItemController = Ember.ObjectController.extend
 
-  newSchool: Ember.Object.create
+  newSchool: Ember.Object.createWithMixins Ember.Validations.Mixin,
     name: ''
     type: ''
     city: ''
@@ -11,6 +11,17 @@ SchoolItemController = Ember.ObjectController.extend
     adminpassword: ''
     assisstantuser: ''
     assisstantpassword: ''
+
+  # newSchool.reopenClass
+    validations:
+      name:
+        presence: true
+      city:
+        presence: true
+      type:
+        presence: true
+      state:
+        presence: true
 
   typeaheadcontent: [
     Ember.Object.create({colour: "Red"})
@@ -35,21 +46,14 @@ SchoolItemController = Ember.ObjectController.extend
   actions:
     submit: ->
       console.log "Sumbit!!"
-      console.log @get('name')
-      console.log @newSchool.name
-      console.log @newSchool.type
-      console.log @newSchool.city
-      console.log @newSchool.state
-      schoolType = @newSchool.type
-      schoolState = @newSchool.state
+
       school = @store.createRecord 'school',
         name: @newSchool.name
         city: @newSchool.city
-      school.save().then =>
-        @store.find('school-type', schoolType).then (type) ->
-          school.set 'type', type
-        @store.find('state', schoolState).then (state) ->
-          school.set 'state', state
+        type: @newSchool.type
+        state: @newSchool.state
+
+      school.save()
       @.transitionToRoute "schools"
 
     cancel: ->

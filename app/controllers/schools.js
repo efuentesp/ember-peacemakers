@@ -6,12 +6,14 @@ schoolsController = Ember.ArrayController.extend({
   sortProperties: ['createdAt'],
   sortAscending: false,
   isNew: (function() {
-    var isNew;
+    var diff, isNew, target, today;
     console.log("isNew()");
     isNew = false;
-    console.log(this.createdAt);
-    console.log(moment(this.createdAt).startOf('day').fromNow());
-    if (moment(this.createdAt).startOf('hour').fromNow() > 1) {
+    today = moment();
+    target = moment(this.createdAt);
+    diff = today.diff(target, 'days');
+    console.log(diff);
+    if (diff <= 1) {
       isNew = true;
     }
     return isNew;

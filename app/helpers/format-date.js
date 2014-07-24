@@ -3,7 +3,8 @@ import Ember from 'ember';
 var formatDateHelper;
 
 formatDateHelper = Ember.Handlebars.makeBoundHelper(function(date) {
-  return moment(date).format('DD-MMM-YYYY');
+  moment.lang('es');
+  return moment(date).format('LL');
 });
 
 export default formatDateHelper;

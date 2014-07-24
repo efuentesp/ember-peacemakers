@@ -3,7 +3,7 @@ import Ember from 'ember';
 var SchoolItemController;
 
 SchoolItemController = Ember.ObjectController.extend({
-  newSchool: Ember.Object.create({
+  newSchool: Ember.Object.createWithMixins(Ember.Validations.Mixin, {
     name: '',
     type: '',
     city: '',
@@ -11,7 +11,21 @@ SchoolItemController = Ember.ObjectController.extend({
     adminuser: '',
     adminpassword: '',
     assisstantuser: '',
-    assisstantpassword: ''
+    assisstantpassword: '',
+    validations: {
+      name: {
+        presence: true
+      },
+      city: {
+        presence: true
+      },
+      type: {
+        presence: true
+      },
+      state: {
+        presence: true
+      }
+    }
   }),
   typeaheadcontent: [
     Ember.Object.create({
@@ -42,28 +56,15 @@ SchoolItemController = Ember.ObjectController.extend({
   }).property(),
   actions: {
     submit: function() {
-      var school, schoolState, schoolType,
-        _this = this;
+      var school;
       console.log("Sumbit!!");
-      console.log(this.get('name'));
-      console.log(this.newSchool.name);
-      console.log(this.newSchool.type);
-      console.log(this.newSchool.city);
-      console.log(this.newSchool.state);
-      schoolType = this.newSchool.type;
-      schoolState = this.newSchool.state;
       school = this.store.createRecord('school', {
         name: this.newSchool.name,
-        city: this.newSchool.city
+        city: this.newSchool.city,
+        type: this.newSchool.type,
+        state: this.newSchool.state
       });
-      school.save().then(function() {
-        _this.store.find('school-type', schoolType).then(function(type) {
-          return school.set('type', type);
-        });
-        return _this.store.find('state', schoolState).then(function(state) {
-          return school.set('state', state);
-        });
-      });
+      school.save();
       return this.transitionToRoute("schools");
     },
     cancel: function() {
