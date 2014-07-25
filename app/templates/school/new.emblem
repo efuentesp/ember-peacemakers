@@ -1,24 +1,19 @@
-.container
-  .row
-    span.col-md-12
+.container.mainpanel
+  .pageheader
+    h2
+      i.fa.fa-bell-o
+      |  Agregar Escuelas
+    .breadcrumb-wrapper
       ol.breadcrumb
         li
           link-to "application"
-            i.fa.fa-home
             |  Inicio
         li
           link-to "schools"
             | Escuelas
         li.active Agregar Escuela
 
-  .row
-    .col-md-12
-      h2#title
-        i.fa.fa-bell-o
-        |  Agregar Escuela
-      hr
-      br
-  .row
+  .contentpanel
     .col-md-6
       form-for controller.newSchool id='form-school'
         = input newSchool.name
