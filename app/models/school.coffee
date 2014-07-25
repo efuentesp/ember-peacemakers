@@ -3,6 +3,9 @@
 School = DS.Model.extend
   name: DS.attr 'string'
   city: DS.attr 'string'
+  country: DS.attr 'string',
+    defaultValue: ->
+      'México'
   createdAt: DS.attr 'date',
     defaultValue: ->
       new Date()

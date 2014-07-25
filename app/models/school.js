@@ -5,6 +5,11 @@ var School;
 School = DS.Model.extend({
   name: DS.attr('string'),
   city: DS.attr('string'),
+  country: DS.attr('string', {
+    defaultValue: function() {
+      return 'México';
+    }
+  }),
   createdAt: DS.attr('date', {
     defaultValue: function() {
       return new Date();

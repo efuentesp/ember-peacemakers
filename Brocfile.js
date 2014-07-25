@@ -95,6 +95,8 @@ app.import('vendor/ember-typeahead/dist/ember-typeahead.min.js')
 app.import('vendor/ember-easyForm-shim/dist/ember-easyForm.min.js')
 app.import('vendor/ember-validations-shim/ember-validations.min.js')
 
+app.import('vendor/datatables/media/js/jquery.dataTables.min.js')
+
 //module.exports = app.toTree();
 module.exports = mergeTrees([
   app.toTree(),

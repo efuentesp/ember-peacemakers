@@ -25,7 +25,7 @@
           = label-field name text='Nombre' placeholder='Nombre de la Escuela'
           = input-field name class='form-control' autofocus='true'
           if view.showError
-            error-field newSchool.name
+            error-field name
         = input type
           = label-field type text='Tipo'
           = input-field as='select' class='form-control' collection='controller.schoolTypes' selection='type' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
