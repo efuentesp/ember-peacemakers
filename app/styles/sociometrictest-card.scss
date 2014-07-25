@@ -1,0 +1,53 @@
+/* SOCIOMETRIC TEST CARD */
+
+.cuadro_intro_hover{
+  padding: 0px;
+  position: relative;
+  overflow: hidden;
+  height: 260px;
+  margin: 0 5px 20px 0;
+}
+.cuadro_intro_hover:hover .caption{
+  opacity: 1;
+  transform: translateY(-190px);
+  -webkit-transform:translateY(-190px);
+  -moz-transform:translateY(-190px);
+  -ms-transform:translateY(-190px);
+  -o-transform:translateY(-190px);
+}
+.cuadro_intro_hover img{
+  z-index: 4;
+}
+.cuadro_intro_hover .caption{
+  position: absolute;
+  top:205px;
+  -webkit-transition:all 0.3s ease-in-out;
+  -moz-transition:all 0.3s ease-in-out;
+  -o-transition:all 0.3s ease-in-out;
+  -ms-transition:all 0.3s ease-in-out;
+  transition:all 0.3s ease-in-out;
+  width: 100%;
+}
+.cuadro_intro_hover .blur{
+  background-color: rgba(0,0,0,0.7);
+  height: 300px;
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+}
+.cuadro_intro_hover .caption-text{
+  z-index: 10;
+  color: #fff;
+  position: absolute;
+  height: 300px;
+  text-align: center;
+  top:-20px;
+  width: 100%;
+}
+.card-img
+{
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 10px;
+  display: block;
+}

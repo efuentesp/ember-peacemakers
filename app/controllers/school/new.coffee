@@ -12,7 +12,6 @@ SchoolItemController = Ember.ObjectController.extend
     assisstantuser: ''
     assisstantpassword: ''
 
-  # newSchool.reopenClass
     validations:
       name:
         presence: true
