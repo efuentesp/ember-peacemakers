@@ -14,22 +14,54 @@
         li.active Agregar Escuela
 
   .contentpanel
-    .col-md-6
+    .col-md-5.col-md-offset-1
       form-for controller.newSchool id='form-school'
-        = input newSchool.name
+        = input name
           = label-field name text='Nombre'
           = input-field name class='form-control' placeholder='Nombre de la Escuela' autofocus='true'
-          if view.showError
-            error-field name
+          span.help-block
+            = controller.newSchool.errors.name
         = input type
           = label-field type text='Tipo'
           = input-field as='select' class='form-control' collection='controller.schoolTypes' selection='type' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
+          span.help-block
+            = controller.newSchool.errors.type
         = input city
           = label-field city text='Ciudad'
-          type-ahead data=typeaheadcontent name="colour" selection=city class="form-control" placeholder='Ciudad de la Escuela'
+          = input-field city class='form-control' placeholder='Nombre de la Ciudad'
+          //- type-ahead data=cities name="name" selection=newSchool.city class="form-control" placeholder='Ciudad de la Escuela'
+          span.help-block
+            = controller.newSchool.errors.city
         = input state
           = label-field state text='Estado'
           = input-field as='select' class='form-control' collection='controller.schoolStates' selection='state' label='Estado' optionValuePath='content.id' optionLabelPath='content.name' prompt='-- Seleccionar --'
+          span.help-block
+            = controller.newSchool.errors.state
+    .col-md-5
+      .row
+        form-for controller.newSchool id='form-admin'
+          = input adminUser
+            = label-field adminUser text='Usuario'
+            = input-field adminUser class='form-control' placeholder='Usuario del Administrador'
+            span.help-block
+              = controller.newSchool.errors.adminUser
+          = input adminPassword
+            = label-field adminPassword text='Contraseña'
+            = input-field adminPassword class='form-control' placeholder='Contraseña del Administrador'
+            span.help-block
+              = controller.newSchool.errors.adminPassword
+      .row
+        form-for controller.newSchool id='form-assistant'
+          = input assistantUser
+            = label-field assistantUser text='Usuario'
+            = input-field assistantUser class='form-control' placeholder='Usuario del Asistente'
+            span.help-block
+              = controller.newSchool.errors.assistantUser
+          = input assistantPassword
+            = label-field assistantPassword text='Contraseña'
+            = input-field assistantPassword class='form-control' placeholder='Contraseña del Asistente'
+            span.help-block
+              = controller.newSchool.errors.assistantPassword
 
   .row
     .col-md-12

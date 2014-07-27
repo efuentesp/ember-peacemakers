@@ -9,5 +9,9 @@ schoolNewRoute = Ember.Route.extend
     newSchool.set "type"
     newSchool.set "city"
     newSchool.set "state"
+    newSchool.set "adminUser"
+    newSchool.set "adminPassword"
+    newSchool.set "assisstantUser"
+    newSchool.set "assisstantPassword"
 
 `export default schoolNewRoute`

@@ -19,6 +19,9 @@ School = DS.Model.extend({
   state: DS.belongsTo('state'),
   classrooms: DS.hasMany('classroom', {
     async: true
+  }),
+  admins: DS.hasMany('user', {
+    async: true
   })
 });
 
@@ -31,6 +34,7 @@ School.reopenClass({
       city: 'Iztapalapa',
       state: 'MX-DIF',
       classrooms: [1, 2],
+      admins: [1, 2],
       createdAt: moment().subtract('days', 7)
     }, {
       id: 2,
@@ -39,6 +43,7 @@ School.reopenClass({
       city: 'Cuernavaca',
       state: 'MX-MOR',
       classrooms: [3],
+      admins: [3],
       createdAt: moment().subtract('days', 15)
     }, {
       id: 3,
@@ -46,6 +51,7 @@ School.reopenClass({
       type: 'PRIVATE',
       city: 'Toluca',
       state: 'MX-MEX',
+      admins: [3, 2],
       createdAt: moment().subtract('days', 2)
     }, {
       id: 4,
@@ -53,6 +59,7 @@ School.reopenClass({
       type: 'PUBLIC',
       city: 'Coyoacán',
       state: 'MX-DIF',
+      admins: [3],
       createdAt: moment().subtract('days', 100)
     }
   ]

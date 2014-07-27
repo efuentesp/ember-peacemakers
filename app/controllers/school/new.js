@@ -8,13 +8,16 @@ SchoolItemController = Ember.ObjectController.extend({
     type: '',
     city: '',
     state: '',
-    adminuser: '',
-    adminpassword: '',
-    assisstantuser: '',
-    assisstantpassword: '',
+    adminUser: '',
+    adminPassword: '',
+    assistantUser: '',
+    assistantPassword: '',
     validations: {
       name: {
-        presence: true
+        presence: true,
+        length: {
+          maximum: 100
+        }
       },
       city: {
         presence: true
@@ -23,31 +26,41 @@ SchoolItemController = Ember.ObjectController.extend({
         presence: true
       },
       state: {
-        presence: true
+        presence: true,
+        length: {
+          maximum: 80
+        }
+      },
+      adminUser: {
+        presence: true,
+        length: {
+          minimum: 3,
+          maximum: 50
+        }
+      },
+      adminPassword: {
+        presence: true,
+        length: {
+          minimum: 5,
+          maximum: 15
+        }
+      },
+      assistantUser: {
+        presence: true,
+        length: {
+          minimum: 3,
+          maximum: 50
+        }
+      },
+      assistantPassword: {
+        presence: true,
+        length: {
+          minimum: 5,
+          maximum: 15
+        }
       }
     }
   }),
-  typeaheadcontent: [
-    Ember.Object.create({
-      colour: "Red"
-    }), Ember.Object.create({
-      colour: "Green"
-    }), Ember.Object.create({
-      colour: "Blue"
-    }), Ember.Object.create({
-      colour: "Blue 1"
-    }), Ember.Object.create({
-      colour: "Blue 2"
-    }), Ember.Object.create({
-      colour: "Blue 3"
-    }), Ember.Object.create({
-      colour: "Blue 4"
-    }), Ember.Object.create({
-      colour: "Blue 5"
-    }), Ember.Object.create({
-      colour: "Blue 6"
-    })
-  ],
   schoolTypes: (function() {
     return this.store.find("school-type");
   }).property(),
@@ -56,16 +69,81 @@ SchoolItemController = Ember.ObjectController.extend({
   }).property(),
   actions: {
     submit: function() {
-      var school;
+      var locals,
+        _this = this;
       console.log("Sumbit!!");
-      school = this.store.createRecord('school', {
-        name: this.newSchool.name,
-        city: this.newSchool.city,
-        type: this.newSchool.type,
-        state: this.newSchool.state
+      locals = {};
+      return async.series({
+        findRolePrincipal: function(cb) {
+          return _this.store.find("user-role", "PRINCIPAL").then(function(role) {
+            locals.rolePrincipal = role;
+            return cb(null, role);
+          });
+        },
+        findRoleAssistant: function(cb) {
+          return _this.store.find("user-role", "ASSISTANT").then(function(role) {
+            locals.roleAssistant = role;
+            return cb(null, role);
+          });
+        },
+        createUserPrincipal: function(cb) {
+          var principal;
+          principal = _this.store.createRecord('user', {
+            username: _this.newSchool.adminUser,
+            password: _this.newSchool.adminPassword,
+            role: locals.rolePrincipal
+          });
+          return principal.save().then(function(user) {
+            locals.userPrincipal = user;
+            return cb(null, user);
+          });
+        },
+        createUserAssistant: function(cb) {
+          var assistant;
+          assistant = _this.store.createRecord('user', {
+            username: _this.newSchool.assistantUser,
+            password: _this.newSchool.assistantPassword,
+            role: locals.roleAssistant
+          });
+          return assistant.save().then(function(user) {
+            locals.userAssistant = user;
+            return cb(null, user);
+          });
+        },
+        createSchool: function(cb) {
+          var school;
+          school = _this.store.createRecord('school', {
+            name: _this.newSchool.name,
+            city: _this.newSchool.city,
+            type: _this.newSchool.type,
+            state: _this.newSchool.state
+          });
+          return school.save().then(function(school) {
+            locals.school = school;
+            return cb(null, school);
+          });
+        },
+        addSchoolAdmins: function(cb) {
+          var school;
+          console.log("addSchoolAdmins (async)");
+          console.log(locals.school);
+          console.log(locals.userPrincipal);
+          school = locals.school;
+          return school.get("admins").then(function(admins) {
+            admins.pushObject(locals.userPrincipal);
+            admins.pushObject(locals.userAssistant);
+            return school.save().then(function(school) {
+              console.log(school);
+              locals.school = school;
+              return cb(null, school);
+            });
+          });
+        }
+      }, function(err, result) {
+        console.log("result (async)");
+        console.log(result);
+        return _this.transitionToRoute("schools");
       });
-      school.save();
-      return this.transitionToRoute("schools");
     },
     cancel: function() {
       console.log("Cancel!!");
