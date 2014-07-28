@@ -1,4 +1,4 @@
-.container.mainpanel
+.mainpanel
   .pageheader
     h2
       i.fa.fa-bell-o
@@ -10,65 +10,71 @@
             |  Inicio
         li.active Escuelas
 
-  .contentpanel
-    //- .row
-    //-   .col-md-10
-    //-     .input-group
-    //-       .input-group-addon
-    //-         i.fa.fa-search
-    //-       input#school-filter.form-control type="text" placeholder="Buscar Escuela..."
-    //-   .col-md-2
-    //-     .pull-right
-    //-       span.text-muted
-    //-         b 1
-    //-         |  - 
-    //-         b = controller.length
-    //-         |  de 
-    //-         b = controller.length
-    //-         |  
-    //-       .btn-group.btn-group-sm
-    //-         button.btn.btn-default type="button" disabled="disabled"
-    //-           i.fa.fa-chevron-left
-    //-         button.btn.btn-default type="button" disabled="disabled"
-    //-           i.fa.fa-chevron-right
+.row
+  .col-md-10.col-md-offset-1
+    .contentpanel
+      .row
+        .col-md-10
+          .input-group
+            .input-group-addon
+              i.fa.fa-search
+            = input#school-filter.form-control type="text" placeholder="Buscar Escuela..." value=school-filter
+        .col-md-2
+          .pull-right
+            span.text-muted
+              b 1
+              |  - 
+              b = controller.length
+              |  de 
+              b = controller.length
+              |  
+            .btn-group.btn-group-sm
+              button.btn.btn-default type="button" disabled="disabled"
+                i.fa.fa-chevron-left
+              button.btn.btn-default type="button" disabled="disabled"
+                i.fa.fa-chevron-right
+    br
 
-    .row
-      table#school-table.display cellspacing="0" width="100%"
-        thead
-          tr
-            th.col-md-6 Nombre
-            th.col-md-4 Dirección
-            th Fecha de Creación
-            th
-              link-to "school.new" class="btn btn-primary btn-block"
-                i.fa.fa-plus-circle
-                |  Agregar Escuela
-        tbody
-          each controller
+      .row
+        table#school-table.table
+          thead
             tr
-              td
-                b = name 
-                h5.text-muted = type.name
-                h6
-                  if isNew
-                    bs-label content="Nueva" type="info"
-              td
-                = city
-                | ,  
-                = state.name
-                h5 = country
-              td
-                = format-date createdAt
-              td
-                link-to "classrooms" this class="btn btn-success"
-                  i.fa.fa-book
-                  |  Aulas
-                |  
-                bs-button type="info" clicked="editSchool"
-                  i.fa.fa-pencil
-                |  
-                link-to "application" class="btn btn-danger"
-                  i.fa.fa-trash-o
-          else
-            tr
-              td No hay Escuelas.
+              th.col-md-5 Nombre
+              th.col-md-4 Dirección
+              //- th Fecha de Creación
+              th.col-md-2
+                link-to "school.new" class="btn btn-primary btn-block"
+                  i.fa.fa-plus-circle
+                  |  Agregar Escuela
+          tbody
+            each searchedContent
+              tr
+                td
+                  b = name 
+                  h5.text-muted = type.name
+                  h6
+                    if isNew
+                      bs-label content="Nueva" type="info"
+                td
+                  = city
+                  | ,  
+                  = state.name
+                  h5 = country
+                //- td
+                //-   = format-date createdAt
+                td
+                  link-to "classrooms" this class="btn btn-success"
+                    i.fa.fa-book
+                    |  Aulas
+                  |  
+                  link-to "school.edit" this class="btn btn-info"
+                    i.fa.fa-pencil
+                  |  
+                  link-to "school.delete" this class="btn btn-danger"
+                    i.fa.fa-trash-o
+            else
+              tr
+                td No hay Escuelas.
+                td
+                td
+                td

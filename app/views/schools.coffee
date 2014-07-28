@@ -2,44 +2,48 @@
 
 schoolsView = Ember.View.extend
 
-  templateName: 'schools'
+  # data: ->
+  # templateName: 'schools'
+  # tagName: 'table'
 
   didInsertElement: ->
-    $('#school-table').dataTable
+    self = @
 
-      "ordering": false
-      # "order": [[ 2, "desc" ]]
-      # "info":     false
+    @$('#school-table').dataTable()
 
-      stateSave: true
+      # "ordering": false
+      # # "order": [[ 2, "desc" ]]
+      # # "info":     false
 
-      "dom": '<"top"f>rt<"bottom"ip><"clear">'
+      # stateSave: true
 
-      "columnDefs": [
-        {
-          "targets": [ 2 ],
-          "visible": false,
-          "searchable": false
-        },
-        {
-          "targets": [ 3 ],
-          "searchable": false
-        }
-      ]
+      # "dom": '<"top"f>rt<"bottom"ip><"clear">'
 
-      "language": {
-        "lengthMenu": "Mostrar _MENU_ registros por página"
-        "zeroRecords": "No hay resultados."
-        "info": "Página _PAGE_ de _PAGES_"
-        "infoEmpty": "No hay resultados."
-        "infoFiltered": "(de un total de _MAX_ registros)"
-        "search": "Buscar"
-        "paginate": {
-          "first":    "<<",
-          "previous": "<",
-          "next":     ">",
-          "last":     ">>"
-        }
-      }
+      # "columnDefs": [
+      #   {
+      #     "targets": [ 2 ],
+      #     "visible": false,
+      #     "searchable": false
+      #   },
+      #   {
+      #     "targets": [ 3 ],
+      #     "searchable": false
+      #   }
+      # ]
+
+      # "language": {
+      #   "lengthMenu": "Mostrar _MENU_ registros por página"
+      #   "zeroRecords": "No hay resultados."
+      #   "info": "Página _PAGE_ de _PAGES_"
+      #   "infoEmpty": "No hay resultados."
+      #   "infoFiltered": "(de un total de _MAX_ registros)"
+      #   "search": "Buscar"
+      #   "paginate": {
+      #     "first":    "<<",
+      #     "previous": "<",
+      #     "next":     ">",
+      #     "last":     ">>"
+      #   }
+      # }
 
 `export default schoolsView`

@@ -10,10 +10,19 @@ Router.map(function() {
   this.route('login');
   this.resource('schools');
   this.resource('school', function() {
-    return this.route('new');
+    this.route('new');
+    this.route('edit', {
+      path: '/school/edit/:school_id'
+    });
+    return this.route('delete', {
+      path: '/school/delete/:school_id'
+    });
   });
   this.resource('classrooms', {
     path: '/schools/:school_id/classrooms'
+  });
+  this.resource('classroom', function() {
+    return this.route('new');
   });
   this.resource('classmates', {
     path: '/schools/:school_id/classrooms/:classroom_id'

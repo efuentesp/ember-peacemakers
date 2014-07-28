@@ -2,7 +2,7 @@
   .pageheader
     h2
       i.fa.fa-bell-o
-      |  Agregar Escuela
+      |  Editar Escuela
     .breadcrumb-wrapper
       ol.breadcrumb
         li
@@ -11,7 +11,7 @@
         li
           link-to "schools"
             | Escuelas
-        li.active Agregar Escuela
+        li.active Editar Escuela
 
   .contentpanel
     .col-md-6.col-md-offset-3
@@ -20,7 +20,7 @@
       form-for controller.newSchool id='form-school'
         = input name
           = label-field name text='Nombre'
-          = input-field name class='form-control' placeholder='Nombre de la Escuela' autofocus='true'
+          = input-field name class='form-control' placeholder='Nombre de la Escuela'
           span.help-block
             = controller.newSchool.errors.name
         = input type

@@ -125,23 +125,17 @@ SchoolItemController = Ember.ObjectController.extend({
         },
         addSchoolAdmins: function(cb) {
           var school;
-          console.log("addSchoolAdmins (async)");
-          console.log(locals.school);
-          console.log(locals.userPrincipal);
           school = locals.school;
           return school.get("admins").then(function(admins) {
             admins.pushObject(locals.userPrincipal);
             admins.pushObject(locals.userAssistant);
             return school.save().then(function(school) {
-              console.log(school);
               locals.school = school;
               return cb(null, school);
             });
           });
         }
       }, function(err, result) {
-        console.log("result (async)");
-        console.log(result);
         return _this.transitionToRoute("schools");
       });
     },

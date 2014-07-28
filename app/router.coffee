@@ -8,7 +8,11 @@ Router.map ->
   @resource 'schools'
   @resource 'school', ->
     @route 'new'
+    @route 'edit', { path: '/school/edit/:school_id' }
+    @route 'delete', { path: '/school/delete/:school_id' }
   @resource 'classrooms', { path: '/schools/:school_id/classrooms' }
+  @resource 'classroom', ->
+    @route 'new'
   @resource 'classmates', { path: '/schools/:school_id/classrooms/:classroom_id' }
   @route 'setup'
   @route 'sociometricTestResults'

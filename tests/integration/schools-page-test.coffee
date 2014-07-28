@@ -72,24 +72,3 @@ test 'Should list all schools.', ->
     equal find("td:contains('School 2')").length, 1, "No School found!"
     equal find("td:contains('School 3')").length, 1, "No School found!"
     equal find("td:contains('School 4')").length, 1, "No School found!"
-
-test 'Should show Add New School form when Add button is pressed.', ->
-  visit('/schools').then ->
-    click('#btn_addSchool').then ->
-      ok find('#form_school').length == 1, "Add School form not found!"
-
-test 'Should add a new School.', ->
-  visit('/schools').then ->
-    click('#btn_addSchool').then ->
-      equal find("#schoolType option[value='PRIVATE']").length, 1, "No SchoolTypes loaded in ListBox."
-      equal find("#schoolState option[value='MX-DIF']").length, 1, "No SchoolState loaded in ListBox."
-      fillIn '#schoolName input', '#form_school', 'School 5'
-      fillIn '#schoolCity input', '#form_school', 'City 5'
-      # $('#schoolCity input').val('City 5')
-      fillIn '#schoolType select', '#form_school', 'PRIVATE'
-      # $("#schoolType option[value='PRIVATE']").attr('selected', true)
-      fillIn '#schoolState select', '#form_school', 'MX-DIF'
-      # $("#schoolState option[value='MX-DIF']").attr('selected', true)
-      click("button:contains('Guardar')").then -> # Find a way to put an Id to a Modal.
-        # debugger
-        equal find("td:contains('School 5')").length, 1, "New School not found!"

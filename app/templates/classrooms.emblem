@@ -1,111 +1,112 @@
-.container
-  .row
-    span.col-md-12
+.container.mainpanel
+  .pageheader
+    h2
+      i.fa.fa-book
+      |  Aulas
+      span
+        b = name
+        |  (
+        = city
+        |, 
+        = state.name
+        |)
+    .breadcrumb-wrapper
       ol.breadcrumb
         li
           link-to "application"
-            i.fa.fa-home
             |  Inicio
         li
           link-to "schools"
-            | Escuelas
+            |  Escuelas
         li.active Aulas
 
-  .row
-    .col-md-10
-      h2#title
-        i.fa.fa-book
-        |  Aulas 
-        small = name
-    .col-md-2
-      .pull-right style="margin-top:20px;"
-        bs-button type="primary" clicked="addSchool"
-          i.fa.fa-plus-circle
-          |  Agregar Aula
-  hr
-  .row
-    .col-md-8
-    .col-md-4
-      .pull-right
-        span.text-muted
-          b 1
-          |  - 
-          b = classrooms.length
-          |  de 
-          b = classrooms.length
-          |  
-        .btn-group.btn-group-sm
-          button.btn.btn-default type="button" disabled="disabled"
-            i.fa.fa-chevron-left
-          button.btn.btn-default type="button" disabled="disabled"
-            i.fa.fa-chevron-right
-
-  .row
-    .col-md-2
-    .col-md-10
-      table#classroom-table.table.table-hover
-        thead
-          tr
-            th.col-md-2
-            th.col-md-2
-            th.col-md-2
-            th
-              i.fa.fa-group
-            th
-              i.fa.fa-comment-o
-            th
-              i.fa.fa-check-square-o
-            th
-              i.fa.fa-share-alt
-            th
-        tbody
-          each classroom in classrooms
+  .contentpanel
+    .row
+      .col-md-10
+      .col-md-2
+        .pull-right
+          span.text-muted
+            b 1
+            |  - 
+            b = classrooms.length
+            |  de 
+            b = classrooms.length
+            |  
+          .btn-group.btn-group-sm
+            button.btn.btn-default type="button" disabled="disabled"
+              i.fa.fa-chevron-left
+            button.btn.btn-default type="button" disabled="disabled"
+              i.fa.fa-chevron-right
+    .row
+      .col-md-3
+      .col-md-9
+        table#classroom-table.table
+          thead
             tr
-              td = classroom.stage
-              td = classroom.period
-              td = classroom.name
-              td
-                if classroom.classmatesCount
-                  span.badge = classroom.classmatesCount
-              td
-                a
-                  i.fa.fa-comment-o
-                  |  (1)
-              td
-                a
-                  i.fa.fa-check-square-o
-                  |  (2)
-              td
-                a
-                  i.fa.fa-share-alt
-                  |  (3)
-              td
-                link-to "classmates" id classroom.id class="btn btn-success"
-                  i.fa.fa-group
-                  |  Alumnos
-                |  
-                .btn-group
-                  button.btn.btn-info.dropdown-toogle data-toggle="dropdown"
-                    | Configurar 
-                    span.caret
-                  ul.dropdown-menu role="menu"
-                    li
-                      link-to "index"
-                        i.fa.fa-comment-o
-                        |  Activar Votación
-                    li
-                      a
-                        i.fa.fa-check-square-o
-                        |  Activar Encuesta
-                    li.divider
-                    li
-                      link-to "application"
-                        i.fa.fa-pencil
-                        |  Editar
-                    li
-                      link-to "application"
-                        i.fa.fa-trash-o
-                        |  Eliminar
-          else
-            tr
-              td No hay Aulas.
+              th.col-md-2 Nivel
+              th.col-md-2 Período
+              th.col-md-2 Aula
+              th
+                i.fa.fa-group
+              th
+                i.fa.fa-comment-o
+              th
+                i.fa.fa-check-square-o
+              th
+                i.fa.fa-share-alt
+              th
+                link-to "classroom.new" class="btn btn-primary btn-block"
+                  i.fa.fa-plus-circle
+                  |  Agregar Aula
+          tbody
+            each classroom in classrooms
+              tr
+                td = classroom.stage
+                td = classroom.period
+                td = classroom.name
+                td
+                  if classroom.classmatesCount
+                    span.badge = classroom.classmatesCount
+                td
+                  a
+                    i.fa.fa-comment-o
+                    |  (1)
+                td
+                  a
+                    i.fa.fa-check-square-o
+                    |  (2)
+                td
+                  a
+                    i.fa.fa-share-alt
+                    |  (3)
+                td
+                  link-to "classmates" id classroom.id class="btn btn-success"
+                    i.fa.fa-group
+                    |  Alumnos
+                  |  
+                  .btn-group
+                    button.btn.btn-info.dropdown-toogle data-toggle="dropdown"
+                      i.fa.fa-cog
+                      |   
+                      span.caret
+                    ul.dropdown-menu role="menu"
+                      li
+                        link-to "index"
+                          i.fa.fa-comment-o
+                          |  Activar Votación
+                      li
+                        a
+                          i.fa.fa-check-square-o
+                          |  Activar Encuesta
+                      li.divider
+                      li
+                        link-to "application"
+                          i.fa.fa-pencil
+                          |  Editar
+                      li
+                        link-to "application"
+                          i.fa.fa-trash-o
+                          |  Eliminar
+            else
+              tr
+                td No hay Aulas.

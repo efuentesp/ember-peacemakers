@@ -80,6 +80,18 @@ var fontawesome = pickFiles('vendor/font-awesome/fonts', {
   destDir: '/fonts'
 });
 
+// var datatables = pickFiles('vendor/datatables/media/images', {
+//   srcDir: '/',
+//   files: [
+//     'sort_asc.png',
+//     'sort_asc_disabled.png',
+//     'sort_both.png',
+//     'sort_desc.png',
+//     'sort_desc_disabled.png'
+//   ],
+//   destDir: '/images'
+// });
+
 app.import({development: 'vendor/route-recognizer/dist/route-recognizer.js'});
 app.import({development: 'vendor/FakeXMLHttpRequest/fake_xml_http_request.js'});
 app.import({development: 'vendor/pretender/pretender.js'});
@@ -95,7 +107,7 @@ app.import('vendor/lodash/dist/lodash.min.js');
 app.import('vendor/ember-easyForm-shim/dist/ember-easyForm.min.js')
 app.import('vendor/ember-validations-shim/ember-validations.min.js')
 
-app.import('vendor/datatables/media/js/jquery.dataTables.min.js')
+// app.import('vendor/datatables/media/js/jquery.dataTables.min.js')
 
 app.import('vendor/async/lib/async.js')
 

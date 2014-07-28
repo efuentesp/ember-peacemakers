@@ -107,20 +107,20 @@ SchoolItemController = Ember.ObjectController.extend
             locals.school = school
             cb(null, school)
         addSchoolAdmins: (cb) ->
-          console.log "addSchoolAdmins (async)"
-          console.log locals.school
-          console.log locals.userPrincipal
+          # console.log "addSchoolAdmins (async)"
+          # console.log locals.school
+          # console.log locals.userPrincipal
           school = locals.school
           school.get("admins").then (admins) ->
             admins.pushObject(locals.userPrincipal)
             admins.pushObject(locals.userAssistant)
             school.save().then (school) ->
-              console.log school
+              # console.log school
               locals.school = school
               cb(null, school)
       , (err, result) =>
-        console.log "result (async)"
-        console.log result
+        # console.log "result (async)"
+        # console.log result
         @.transitionToRoute "schools"
 
     cancel: ->

@@ -13,8 +13,8 @@ schoolNewRoute = Ember.Route.extend({
     newSchool.set("state");
     newSchool.set("adminUser");
     newSchool.set("adminPassword");
-    newSchool.set("assisstantUser");
-    return newSchool.set("assisstantPassword");
+    newSchool.set("assistantUser");
+    return newSchool.set("assistantPassword");
   }
 });
 
