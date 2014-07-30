@@ -5,6 +5,15 @@ var schoolEditRoute;
 schoolEditRoute = Ember.Route.extend({
   model: function(params) {
     return this.store.find("school", params.school_id);
+  },
+  setupController: function(controller, model) {
+    this._super(controller, model);
+    controller.set('newSchool.name', model.get('name'));
+    controller.set('newSchool.type', model.get('type'));
+    controller.set('newSchool.city', model.get('city'));
+    return model.get("admins").then(function(admins) {
+      return console.log(admins);
+    });
   }
 });
 
